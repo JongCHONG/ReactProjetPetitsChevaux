@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Square from './components/square';
+import Square from './components/Square';
 
 function App() {
   return (
