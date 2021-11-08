@@ -18,15 +18,53 @@ class App extends Component {
 
         <div className="container">
           <div className="row">
-            <div className="col-6">
+
+            <div className="col-5">
               <Square className="top-left" />
-              <Square className="top-right" />
             </div>
 
+            <div className="milieu-vertical">
+              vertical haut
+            </div>
+
+            <div className="col-5">
+              <Square className="top-right" />
+            </div>
+            <div className="row">
+              <div className="col-5">
+                <div className="milieu-horizontal">
+                  horizontal
+                </div>
+              </div>
+
+              <div className="milieu-vertical"></div>
+
+              <div className="col-5">
+                <div className="milieu-horizontal">
+                  horizontal
+                </div>
+
+              </div>
+            </div>
+
+
           </div>
+
+
+
           <div className="row">
-            <div className="col-6">
+
+            <div className="col-5">
               <Square className="bottom-left" />
+            </div>
+
+            <div className="milieu-vertical">
+              vertical bas
+
+            </div>
+
+
+            <div className="col-5">
               <Square className="bottom-right" />
             </div>
 
@@ -35,7 +73,7 @@ class App extends Component {
 
         </div>
 
-      </div>
+      </div >
     );
   }
 }
