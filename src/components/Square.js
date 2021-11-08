@@ -4,6 +4,7 @@ class Square extends Component {
     render() {
         return (
             <div>
+                hello
                 
             </div>
         )
