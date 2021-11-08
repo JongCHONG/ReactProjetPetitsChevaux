@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Square extends Component {
     render() {
         return (
-            <div>
-                hello
-                
-            </div>
-        )
+            <>
+                <div className={this.props.className}></div>
+            </>
+        );
     }
 }
 
-export default Square
+export default Square;
