@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import Square from './components/Square';
+import logo from './logo.svg';
+import './App.css';
+import Square from './components/square';
 
 import './App.css'
 
