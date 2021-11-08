@@ -1,10 +1,12 @@
+import React from 'react';
+
 import logo from './logo.svg';
 import './App.css';
-import Square from './components/square';
+import Square from "./components/Square"
 
 import './App.css'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <>
