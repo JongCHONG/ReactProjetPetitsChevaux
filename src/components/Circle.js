@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Circle extends Component {
     render() {
-        return(
-            )
-        }
+        return (
+            <div className="circle"></div>
+        )
     }
-    export default Circle
+}
 
+export default Circle;
