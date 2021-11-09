@@ -1,6 +1,6 @@
 import React from "react";
 
-class Square extends React.Component {
+class BigBox extends React.Component {
   render() {
     return (
       <div
@@ -8,8 +8,6 @@ class Square extends React.Component {
           display: "grid",
           justifyContent: "space-between",
           alignContent: "center,",
-          gridTemplateRows: "2",
-          gridTemplateColumns: "2",
           gridRow: `${this.props.row}`,
           gridColumn: `${this.props.column}`,
           width: "300px",
@@ -24,4 +22,4 @@ class Square extends React.Component {
     );
   }
 }
-export default Square;
+export default BigBox;
