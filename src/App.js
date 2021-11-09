@@ -14,10 +14,10 @@ class App extends Component {
         { 
           id : 0,
           name : "Player 1",
-          color : "blue",
-          positionInitiale : 0,
-          positionActuelle : 0,
-          positionFinale: 56
+          color : "yellow",
+          positionInitiale : 43,
+          positionActuelle : 43,
+          positionFinale1: 56
         },
         {
           id : 1,
@@ -82,7 +82,6 @@ class App extends Component {
             >
             Petits Chevaux
             </div>
-            
             <button onClick={this.handlePlayerMove}>test</button>
             <Button/>
             <div
@@ -133,7 +132,7 @@ class App extends Component {
                 <SmallBox id="56" color="white"></SmallBox>
                 <SmallBox id="53" color="white"></SmallBox>
                 <SmallBox id="57" color="green"></SmallBox>
-                <SmallBox id="1" color="green"></SmallBox> {/* Départ joueur vert*/}
+                <SmallBox id="1" color="green" ></SmallBox> {/* Départ joueur vert*/}
                 <SmallBox id="52" color="white"></SmallBox>
                 <SmallBox id="58" color="green"></SmallBox>
                 <SmallBox id="2" color="white"></SmallBox>
@@ -143,7 +142,7 @@ class App extends Component {
                 <SmallBox id="50" color="white"></SmallBox>
                 <SmallBox id="60" color="green"></SmallBox>
                 <SmallBox id="4" color="white"></SmallBox>
-                <SmallBox id="49" color="white"></SmallBox>
+                <SmallBox id="49" color="white" positionActuelle={this.state.player[0].positionActuelle}></SmallBox>
                 <SmallBox id="61" color="green"></SmallBox>
                 <SmallBox id="5" color="white"></SmallBox>
               </div>
@@ -164,7 +163,7 @@ class App extends Component {
               >
                 {/* Yellow Area */}
                 <SmallBox id="42" color="white"></SmallBox>
-                <SmallBox id="43" color="yellow"></SmallBox> {/* départ joueur jaune*/}
+                <SmallBox id="43" color="yellow" positionActuelle={this.state.player[0].positionActuelle}></SmallBox> {/* départ joueur jaune*/}
                 <SmallBox id="44" color="white"></SmallBox>
                 <SmallBox id="45" color="white"></SmallBox>
                 <SmallBox id="46" color="white"></SmallBox>
