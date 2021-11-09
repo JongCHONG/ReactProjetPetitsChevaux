@@ -11,6 +11,7 @@ class SmallBox extends React.Component {
           backgroundColor: `${this.props.color}`,
           padding: "10px",
           border: "1px solid black",
+          id: `${this.props.id}`,
         }}
       >
       </div>

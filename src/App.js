@@ -81,15 +81,15 @@ class App extends Component {
                   height: "150px",
                 }}
               >
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="black"></SmallBox>
+                <SmallBox id="48" color="black"></SmallBox>
+                <SmallBox id="62" color="green"></SmallBox>
+                <SmallBox id="6" color="black"></SmallBox>
+                <SmallBox id="62" color="yellow"></SmallBox>
+                <SmallBox id="63" color="black"></SmallBox>
+                <SmallBox id="62" color="red"></SmallBox>
+                <SmallBox id="34" color="black"></SmallBox>
+                <SmallBox id="62" color="blue"></SmallBox>
+                <SmallBox id="20" color="black"></SmallBox>
               </div>
               <div
                 style={{
@@ -101,24 +101,24 @@ class App extends Component {
                 }}
               >
                 {/* Green Area */}
-                <SmallBox  id="" color="white"></SmallBox>
-                <SmallBox id="" color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="54"color="white"></SmallBox>
+                <SmallBox id="55" color="white"></SmallBox>{/*fin joueur vert*/}
+                <SmallBox id="56" color="white"></SmallBox>
+                <SmallBox id="53" color="white"></SmallBox>
+                <SmallBox id="57" color="green"></SmallBox>
+                <SmallBox id="1" color="green"></SmallBox> {/* Départ joueur vert*/}
+                <SmallBox id="52" color="white"></SmallBox>
+                <SmallBox id="58" color="green"></SmallBox>
+                <SmallBox id="2" color="white"></SmallBox>
+                <SmallBox id="51" color="white"></SmallBox>
+                <SmallBox id="59" color="green"></SmallBox>
+                <SmallBox id="3" color="white"></SmallBox>
+                <SmallBox id="50" color="white"></SmallBox>
+                <SmallBox id="60" color="green"></SmallBox>
+                <SmallBox id="4" color="white"></SmallBox>
+                <SmallBox id="49" color="white"></SmallBox>
+                <SmallBox id="61" color="green"></SmallBox>
+                <SmallBox id="5" color="white"></SmallBox>
               </div>
               {/* Green Box */}
               <BigBox row={1} column={3} color="green">
@@ -136,24 +136,24 @@ class App extends Component {
                 }}
               >
                 {/* Yellow Area */}
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="42" color="white"></SmallBox>
+                <SmallBox id="43" color="yellow"></SmallBox> {/* départ joueur jaune*/}
+                <SmallBox id="44" color="white"></SmallBox>
+                <SmallBox id="45" color="white"></SmallBox>
+                <SmallBox id="46" color="white"></SmallBox>
+                <SmallBox id="47" color="white"></SmallBox>
+                <SmallBox id="41" color="white"></SmallBox> {/*fin joueur jaune*/}
+                <SmallBox id="57" color="yellow"></SmallBox>
+                <SmallBox id="58" color="yellow"></SmallBox>
+                <SmallBox id="59" color="yellow"></SmallBox>
+                <SmallBox id="60" color="yellow"></SmallBox>
+                <SmallBox id="61" color="yellow"></SmallBox>
+                <SmallBox id="40" color="white"></SmallBox>
+                <SmallBox id="39" color="white"></SmallBox>
+                <SmallBox id="38" color="white"></SmallBox>
+                <SmallBox id="37" color="white"></SmallBox>
+                <SmallBox id="36" color="white"></SmallBox>
+                <SmallBox id="35" color="white"></SmallBox>
               </div>
               <div
                 style={{
@@ -164,24 +164,24 @@ class App extends Component {
                 }}
               >
                 {/* Red Area */}
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="7" color="white"></SmallBox>
+                <SmallBox id="8" color="white"></SmallBox>
+                <SmallBox id="9" color="white"></SmallBox>
+                <SmallBox id="10" color="white"></SmallBox>
+                <SmallBox id="11" color="white"></SmallBox>
+                <SmallBox id="12" color="white"></SmallBox>
+                <SmallBox id="61" color="red"></SmallBox>
+                <SmallBox id="60" color="red"></SmallBox>
+                <SmallBox id="59" color="red"></SmallBox>
+                <SmallBox id="58" color="red"></SmallBox>
+                <SmallBox id="57" color="red"></SmallBox>
+                <SmallBox id="13" color="white"></SmallBox> { /*fin joueur rouge*/ }
+                <SmallBox id="19" color="white"></SmallBox>
+                <SmallBox id="18" color="white"></SmallBox>
+                <SmallBox id="17" color="white"></SmallBox>
+                <SmallBox id="16" color="white"></SmallBox>
+                <SmallBox id="15" color="red"></SmallBox> {/*départ joueur rouge*/}
+                <SmallBox id="14" color="white"></SmallBox>
               </div>
               {/* Blue Box */}
               <BigBox row={3} column={1} color="blue">
@@ -199,24 +199,24 @@ class App extends Component {
                 }}
               >
                 {/* Blue Area */}
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="33" color="white"></SmallBox>
+                <SmallBox id="61" color="blue"></SmallBox>
+                <SmallBox id="21" color="white"></SmallBox>
+                <SmallBox id="32" color="white"></SmallBox>
+                <SmallBox id="60" color="blue"></SmallBox>
+                <SmallBox id="22" color="white"></SmallBox>
+                <SmallBox id="31" color="white"></SmallBox>
+                <SmallBox id="59" color="blue"></SmallBox>
+                <SmallBox id="23" color="white"></SmallBox>
+                <SmallBox id="30" color="white"></SmallBox>
+                <SmallBox id="58" color="blue"></SmallBox>
+                <SmallBox id="24" color="white"></SmallBox>
+                <SmallBox id="29" color="blue"></SmallBox> { /* départ joueur bleu*/}
+                <SmallBox id="57" color="blue"></SmallBox>
+                <SmallBox id="25" color="white"></SmallBox>
+                <SmallBox id="28" color="white"></SmallBox>
+                <SmallBox id="27" color="white"></SmallBox> { /* fin joueur bleu*/}
+                <SmallBox id="26" color="white"></SmallBox>
               </div>
               {/* Red Box */}
               <BigBox row={3} column={3} color="red">
