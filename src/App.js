@@ -79,15 +79,15 @@ class App extends Component {
                   height: "150px",
                 }}
               >
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="yellow"></SmallBox>
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="black"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="black"></SmallBox>
+                <SmallBox id="" color="black"></SmallBox>
+                <SmallBox id="" color="green"></SmallBox>
+                <SmallBox id="6" color="black"></SmallBox>
+                <SmallBox id="" color="yellow"></SmallBox>
+                <SmallBox id="" color="black"></SmallBox>
+                <SmallBox id="" color="red"></SmallBox>
+                <SmallBox id="34" color="black"></SmallBox>
+                <SmallBox id="" color="blue"></SmallBox>
+                <SmallBox id="20" color="black"></SmallBox>
               </div>
               <div
                 style={{
@@ -99,24 +99,24 @@ class App extends Component {
                 }}
               >
                 {/* Green Area */}
-                <SmallBox  id="" color="white"></SmallBox>
+                <SmallBox id=""color="white"></SmallBox>
                 <SmallBox id="" color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="green"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
+                <SmallBox id="" color="green"></SmallBox>
+                <SmallBox id="1" color="green"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
+                <SmallBox id="" color="green"></SmallBox>
+                <SmallBox id="2" color="white"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
+                <SmallBox id="" color="green"></SmallBox>
+                <SmallBox id="3" color="white"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
+                <SmallBox id="" color="green"></SmallBox>
+                <SmallBox id="4" color="white"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
+                <SmallBox id="" color="green"></SmallBox>
+                <SmallBox id="5" color="white"></SmallBox>
               </div>
               {/* Green Box */}
               <BigBox row={1} column={3} color={this.state.player2[0].color}>
@@ -162,24 +162,24 @@ class App extends Component {
                 }}
               >
                 {/* Red Area */}
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="red"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="7" color="white"></SmallBox>
+                <SmallBox id="8" color="white"></SmallBox>
+                <SmallBox id="9" color="white"></SmallBox>
+                <SmallBox id="10" color="white"></SmallBox>
+                <SmallBox id="11" color="white"></SmallBox>
+                <SmallBox id="12" color="white"></SmallBox>
+                <SmallBox id="" color="red"></SmallBox>
+                <SmallBox id="" color="red"></SmallBox>
+                <SmallBox id="" color="red"></SmallBox>
+                <SmallBox id="" color="red"></SmallBox>
+                <SmallBox id="" color="red"></SmallBox>
+                <SmallBox id="13" color="white"></SmallBox>
+                <SmallBox id="19" color="white"></SmallBox>
+                <SmallBox id="18" color="white"></SmallBox>
+                <SmallBox id="17" color="white"></SmallBox>
+                <SmallBox id="16" color="white"></SmallBox>
+                <SmallBox id="15" color="red"></SmallBox>
+                <SmallBox id="14" color="white"></SmallBox>
               </div>
               {/* Blue Box */}
               <BigBox row={3} column={1} color={this.state.player3[0].color}>
@@ -197,24 +197,24 @@ class App extends Component {
                 }}
               >
                 {/* Blue Area */}
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="blue"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
-                <SmallBox color="white"></SmallBox>
+                <SmallBox id="33" color="white"></SmallBox>
+                <SmallBox id="" color="blue"></SmallBox>
+                <SmallBox id="21" color="white"></SmallBox>
+                <SmallBox id="32" color="white"></SmallBox>
+                <SmallBox id="" color="blue"></SmallBox>
+                <SmallBox id="22" color="white"></SmallBox>
+                <SmallBox id="31" color="white"></SmallBox>
+                <SmallBox id="" color="blue"></SmallBox>
+                <SmallBox id="23" color="white"></SmallBox>
+                <SmallBox id="30" color="white"></SmallBox>
+                <SmallBox id="" color="blue"></SmallBox>
+                <SmallBox id="24" color="white"></SmallBox>
+                <SmallBox id="29" color="blue"></SmallBox>
+                <SmallBox id="" color="blue"></SmallBox>
+                <SmallBox id="25" color="white"></SmallBox>
+                <SmallBox id="28" color="white"></SmallBox>
+                <SmallBox id="27" color="white"></SmallBox>
+                <SmallBox id="26" color="white"></SmallBox>
               </div>
               {/* Red Box */}
               <BigBox row={3} column={3} color={this.state.player4[0].color}>
