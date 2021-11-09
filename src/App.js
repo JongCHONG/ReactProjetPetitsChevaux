@@ -50,25 +50,20 @@ class App extends Component {
   render() {
 
     console.log("state player => " ,this.state.player)
-    const player = this.state.player
+    
     return (
       <>
-       <div
+        <div
             style={{ width: "750px", height: "800px" }}
             className="bg-light mx-auto my-5"
-          ></div>
+          >
             <div
               className="h1 bg-dark text-center p-4 text-white"
             >
             Petits Chevaux
             </div>
-    
-
-          <div>
-            <button onClick={this.handlePlayerMove}>test</button>
-
+            {/* <button onClick={this.handlePlayerMove}>test</button> */}
             <Button/>
-          
             <div
               style={{
                 height: "40vh",
