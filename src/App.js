@@ -17,14 +17,16 @@ class App extends Component {
           color : "blue",
           positionInitiale : 0,
           positionActuelle : 0,
-          positionFinale: 56
+          positionFinale: 56,
+          isActive: false
         },
         {
           id : 1,
           name : "Player 2",
           color : "red",
           positionInitiale : 0,
-          positionActuelle : 6
+          positionActuelle : 6,
+          isActive: false
         }
       ]
      
@@ -46,6 +48,24 @@ class App extends Component {
     }
 
   }
+
+handleDice () {
+  var min = 1;
+  var max = 6;
+  
+  const dice = Math.floor(Math.random() * (max - min + 1) + min);
+
+  if (dice === 6) {
+    const playersCloned = [...this.state.player]
+    playersCloned[0].isActive = true
+
+    this.setState({
+      player: playersCloned
+    })
+  }
+
+}
+
 
   render() {
 
