@@ -1,8 +1,7 @@
 import React from "react";
 
 class SmallBox extends React.Component {
-  
-  render() {console.log(this.props)
+  render() {
     return (
       <div
         style={{
