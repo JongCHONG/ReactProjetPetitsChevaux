@@ -133,7 +133,7 @@ class App extends Component {
                 }}
               >
                 {/* Green Area */}
-                <SmallBox id=""color="white"></SmallBox>
+                <SmallBox id="" color="white"></SmallBox>
                 <SmallBox id="" color="white"></SmallBox>
                 <SmallBox id="" color="white"></SmallBox>
                 <SmallBox id="" color="white"></SmallBox>
@@ -263,19 +263,19 @@ class App extends Component {
               <SmallBox color="white"></SmallBox>
               <SmallBox id="53" color="white"></SmallBox>
               <SmallBox color="green"></SmallBox>
-              <SmallBox color="green"></SmallBox>
+              <SmallBox id="1" color="green"></SmallBox>
               <SmallBox id="52" color="white"></SmallBox>
               <SmallBox color="green"></SmallBox>
-              <SmallBox color="white"></SmallBox>
+              <SmallBox id="2" color="white"></SmallBox>
               <SmallBox id="51" color="white"></SmallBox>
               <SmallBox color="green"></SmallBox>
-              <SmallBox color="white"></SmallBox>
+              <SmallBox id="3" color="white"></SmallBox>
               <SmallBox id="50" color="white"></SmallBox>
               <SmallBox color="green"></SmallBox>
-              <SmallBox color="white"></SmallBox>
+              <SmallBox id="4" color="white"></SmallBox>
               <SmallBox id="49" color="white"></SmallBox>
               <SmallBox color="green"></SmallBox>
-              <SmallBox color="white"></SmallBox>
+              <SmallBox id="5" color="white"></SmallBox>
             </div>
             {/* Green Box */}
             <BigBox row={1} column={3} color={this.state.player2[0].color}>
