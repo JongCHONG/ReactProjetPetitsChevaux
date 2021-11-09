@@ -1,7 +1,8 @@
 import React from "react";
 
 class SmallBox extends React.Component {
-  render() {
+  
+  render() {console.log(this.props)
     return (
       <div
         style={{
@@ -11,6 +12,7 @@ class SmallBox extends React.Component {
           backgroundColor: `${this.props.color}`,
           padding: "10px",
           border: "1px solid black",
+          id: `${this.props.id}`
         }}
       >
       </div>
