@@ -7,54 +7,56 @@ import Dice from './components/Dice';
 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(){
+    super()
     this.state = {
-      dice: 0,
-      player1: [
-        {
-          id: "Bryan",
-          color: "yellow",
+      counter: 0,
+      player: [
+        { 
+          id : 0,
+          name : "Player 1",
+          color : "blue",
+          positionInitiale : 0,
+          positionActuelle : 0,
+          positionFinale: 56
         },
-      ],
-      player2: [
         {
-          id: "Jack",
-          color: "green",
+          id : 1,
+          name : "Player 2",
+          color : "red",
+          positionInitiale : 0,
+          positionActuelle : 6
+        }
+      ]
+     
+    }
+    this.handlePlayerMove= this.handlePlayerMove.bind(this)
 
-        },
-      ],
-      player3: [
-        {
-          id: "Ben",
-          color: "blue",
-        },
-      ],
-      player4: [
-        {
-          id: "Jerry",
-          color: "red",
-        },
-      ],
-    };
   }
+  handlePlayerMove=()=>{           //e=dice//
+    const playersCloned = [...this.state.player]
+    playersCloned[0].positionActuelle += 6
+    this.setState({player: playersCloned})
+    this.handleCollision(playersCloned[0].positionActuelle)
+  }
+  handleCollision=(position)=>{
+    const playersCloned = [...this.state.player]
+    if ( playersCloned[1].positionActuelle === position){
+      playersCloned[1].positionActuelle = playersCloned[1].positionInitiale
+      this.setState({player : playersCloned})
+    }
+
+  }
+
   render() {
-      const player1 = this.state.player1;
-      const player2 = this.state.player2;
-      const player3 = this.state.player3;
-      const player4 = this.state.player4;
-      return (
-        <>
-          <div
-            style={{ width: "750px", height: "800px" }}
-            className="bg-light mx-auto my-5"
-          >
-            <div
-              className="h1 bg-dark text-center p-4 text-white"
-            >
-            Petits Chevaux
-            </div>
-            
+
+    console.log("state player => " ,this.state.player)
+    return (
+      <>
+
+          <div>
+            <button onClick={this.handlePlayerMove}>test</button>
+
             <Button/>
           
             <div
@@ -66,7 +68,7 @@ class App extends Component {
               }}
             >
               {/* Yellow Box */}
-              <BigBox row={1} column={1} color={this.state.player1[0].color}>
+              <BigBox row={1} column={1} color="yellow">
                 <SmallBox row={1} column={1} color="white"></SmallBox>
                 <SmallBox row={1} column={2} color="white"></SmallBox>
                 <SmallBox row={2} column={1} color="white"></SmallBox>
@@ -120,7 +122,7 @@ class App extends Component {
                 <SmallBox id="5" color="white"></SmallBox>
               </div>
               {/* Green Box */}
-              <BigBox row={1} column={3} color={this.state.player2[0].color}>
+              <BigBox row={1} column={3} color="green">
                 <SmallBox row={1} column={1} color="white"></SmallBox>
                 <SmallBox row={1} column={2} color="white"></SmallBox>
                 <SmallBox row={2} column={1} color="white"></SmallBox>
@@ -183,7 +185,7 @@ class App extends Component {
                 <SmallBox id="14" color="white"></SmallBox>
               </div>
               {/* Blue Box */}
-              <BigBox row={3} column={1} color={this.state.player3[0].color}>
+              <BigBox row={3} column={1} color="blue">
                 <SmallBox row={1} column={1} color="white"></SmallBox>
                 <SmallBox row={1} column={2} color="white"></SmallBox>
                 <SmallBox row={2} column={1} color="white"></SmallBox>
@@ -218,7 +220,7 @@ class App extends Component {
                 <SmallBox id="26" color="white"></SmallBox>
               </div>
               {/* Red Box */}
-              <BigBox row={3} column={3} color={this.state.player4[0].color}>
+              <BigBox row={3} column={3} color="red">
                 <SmallBox row={1} column={1} color="white"></SmallBox>
                 <SmallBox row={1} column={2} color="white"></SmallBox>
                 <SmallBox row={2} column={1} color="white"></SmallBox>
@@ -226,7 +228,7 @@ class App extends Component {
               </BigBox>
             </div>
           </div>
-          </>
+      </>
               
     );
   }
