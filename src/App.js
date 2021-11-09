@@ -3,6 +3,7 @@ import BigBox from './components/BigBox';
 import SmallBox from './components/Smallbox';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
+import Dice from './components/Dice';
 
 
 class App extends Component {
