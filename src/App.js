@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Square from './components/Square'
+import Square from './components/Square';
+
+import './App.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -29,6 +31,7 @@ class App extends Component {
             <div className="col-5">
               <Square className="top-right" />
             </div>
+
             <div className="row">
               <div className="col-5">
                 <div className="milieu-horizontal">
@@ -42,11 +45,8 @@ class App extends Component {
                 <div className="milieu-horizontal">
                   horizontal
                 </div>
-
               </div>
             </div>
-
-
           </div>
 
 
@@ -59,7 +59,6 @@ class App extends Component {
 
             <div className="milieu-vertical">
               vertical bas
-
             </div>
 
 
@@ -72,7 +71,7 @@ class App extends Component {
 
         </div>
 
-      </div >
+      </div>
     );
   }
 }
