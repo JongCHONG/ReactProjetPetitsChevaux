@@ -3,7 +3,6 @@ import BigBox from './components/BigBox';
 import SmallBox from './components/Smallbox';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
-import Dice from './components/Dice';
 
 
 class App extends Component {
@@ -51,8 +50,19 @@ class App extends Component {
   render() {
 
     console.log("state player => " ,this.state.player)
+    const player = this.state.player
     return (
       <>
+       <div
+            style={{ width: "750px", height: "800px" }}
+            className="bg-light mx-auto my-5"
+          ></div>
+            <div
+              className="h1 bg-dark text-center p-4 text-white"
+            >
+            Petits Chevaux
+            </div>
+    
 
           <div>
             <button onClick={this.handlePlayerMove}>test</button>
