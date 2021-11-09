@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
 import Dice from './components/Dice';
 
+import DefaultDices from './../../-petits-chevaux/src/img/dices.png'
+
+import './App.css'
+
 
 
 class App extends Component {
@@ -42,22 +46,22 @@ class App extends Component {
   }
 
   handleDiceClick() {
-    let image = "./img/dices.png"
+    let image = ""
     const randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
     this.setState({ dice: randomDice })
 
     if (randomDice === 1) {
-      image = "./img/diceone.png"
+      image = "/img/diceone.png"
     } else if (randomDice === 2) {
-      image = "./img/dicetwo.png"
+      image = "/img/dicetwo.png"
     } else if (randomDice === 3) {
-      image = "./img/dicethree.png"
+      image = "/img/dicethree.png"
     } else if (randomDice === 4) {
-      image = "./img/dicefour.png"
+      image = "/img/dicefour.png"
     } else if (randomDice === 5) {
-      image = "./img/dicefive.png"
+      image = "/img/dicefive.png"
     } else if (randomDice === 6) {
-      image = "./img/dicesix.png"
+      image = "/img/dicesix.png"
     }
   }
 
@@ -250,8 +254,10 @@ class App extends Component {
             </BigBox>
           </div>
         </div>
+        <div>
+          <Dice handleClick={this.handleDiceClick} image={this.DefaultDices} />
+        </div>
 
-        <Dice handleClick={this.handleDiceClick} image={this.image} />
       </>
 
     );
