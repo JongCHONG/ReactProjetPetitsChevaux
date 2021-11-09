@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
+import firstImage from "../img/dicefive.png"
+import defaultImage from "../img/dices.png"
 
 class Dice extends Component {
 
     render() {
         const { handleClick, image } = this.props
         return (
-            <div className="down">
-                <button
-                    className="dice"
-                    type="button"
-                    onClick={handleClick}
-                    image={image}
-                >
-                    <img src={image} alt="image du dé"/>
-                </button>
+            <div className="down" onClick={handleClick}>
+                <img onClick={handleClick} src={defaultImage} alt="dé"  />
             </div>
         );
     }

@@ -5,8 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
 import Dice from './components/Dice';
 
-import DefaultDices from './../../-petits-chevaux/src/img/dices.png'
-
 import './App.css'
 
 
@@ -46,9 +44,10 @@ class App extends Component {
   }
 
   handleDiceClick() {
-    let image = ""
+    let image = "./img/dices.png"
     const randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
     this.setState({ dice: randomDice })
+    console.log(randomDice)
 
     if (randomDice === 1) {
       image = "/img/diceone.png"
