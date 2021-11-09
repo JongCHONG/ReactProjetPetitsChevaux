@@ -213,7 +213,7 @@ class App extends Component {
                 <SmallBox id="57" color="blue"></SmallBox>
                 <SmallBox id="25" color="white"></SmallBox>
                 <SmallBox id="28" color="white"></SmallBox>
-                <SmallBox id="27" color="white"></SmallBox> { /* fin joueur bleu*/}
+                <SmallBox id="27" color="white"></SmallBox> { /* fin joueur bleu}*/}
                 <SmallBox id="26" color="white"></SmallBox>
               </div>
               {/* Red Box */}
