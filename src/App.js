@@ -30,36 +30,31 @@ class App extends Component {
           color: "red",
           positionInitiale: 0,
           positionActuelle: 6,
-          isActive: false
+          isActive: true
         }
       ]
 
     }
     this.handlePlayerMove = this.handlePlayerMove.bind(this)
-    this.handleCounter = this.handleCounter.bind(this)
+    // this.handleCounter = this.handleCounter.bind(this)
     this.handleDiceClick = this.handleDiceClick.bind(this)
 
   }
-  handleCounter = () => {
-    let checkCounter = this.state.counter
-    if (checkCounter >= 1) {
-      checkCounter = 0
-      this.setState({ counter: checkCounter })
-    }
 
-  }
-  handlePlayerMove = () => {           //e=dice//
+  handlePlayerMove = () => {
+    //lance le dé
     let playerIndex = this.state.counter
-    // console.log("index player", playerIndex)
+    // récupère le counter index
     const playersCloned = [...this.state.player]
+
+    // vérifie que le joueur est active
     if (this.state.player[this.state.counter].isActive === true) {
-
-      playersCloned[playerIndex].positionActuelle += 6
+      playersCloned[playerIndex].positionActuelle += this.state.dice
+      this.setState({ player: playersCloned })
     }
-    // console.log(" joueur modifir => ", playersCloned[playerIndex])
-
-    this.setState({ player: playersCloned })
+    // vérifie s'il y a collision 
     this.handleCollision(playerIndex)
+    // ajoute +1 au counter 
     this.setState({ counter: this.state.counter === 0 ? 1 : 0 })
     // this.handleCounter()
   }
@@ -72,19 +67,42 @@ class App extends Component {
     }
   }
 
+  // // handlePlayerActive = () =>{
+  //   if (this.state.dice === 6) {
+  //     const playersCloned = [...this.state.player]
+  //     playersCloned[this.state.counter].isActive = true
+
+  //     this.setState({
+  //       player: playersCloned
+  //     })
+  //   }
+
+  // // }
 
   handleDiceClick() {
-    const randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
-    this.setState({ dice: randomDice })
-    if (this.state.dice === 6) {
-      const playersCloned = [...this.state.player]
-      playersCloned[this.state.counter].isActive = true
+    let playersCloned = [...this.state.player]
+    let playerIndex = this.state.counter
+    let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
 
-      this.setState({
-        player: playersCloned
-      })
+    if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
+      playersCloned[playerIndex].isActive = true
+    } else if (this.state.player[playerIndex].isActive === true) {
+      playersCloned[playerIndex].positionActuelle += randomDice
     }
-    this.handlePlayerMove()
+
+    // const secondPlayer = playerIndex === 0 ? 1 : 0
+    // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
+    //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
+    // }
+
+    this.setState({
+      player: playersCloned,
+      dice: randomDice,
+      // counter: playerIndex === 0 ? 1 : 0
+    })
+ 
+     // vérifie s'il y a collision 
+    // this.handleCollision(playerIndex)
   }
 
 
@@ -94,7 +112,7 @@ class App extends Component {
     console.log("counter", this.state.counter)
 
     console.log("dice", this.state.dice)
-    console.log("state player => ", this.state.player)
+    console.log("state player => ", this.state.player[0])
 
 
     return (
