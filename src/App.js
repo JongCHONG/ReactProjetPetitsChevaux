@@ -64,6 +64,17 @@ class App extends Component {
     }
   }
 
+  handleDice() {
+
+    if (this.state.dice === 6) {
+      const playersCloned = [...this.state.player]
+      playersCloned[0].isActive = true
+
+      this.setState({
+        player: playersCloned
+      })
+    }
+  }
 
   render() {
     const player1 = this.state.player1;
