@@ -3,6 +3,9 @@ import BigBox from './components/BigBox';
 import SmallBox from './components/Smallbox';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
+import Dice from "./components/Dice"
+
+import "./App.css"
 
 
 class App extends Component {
@@ -10,6 +13,7 @@ class App extends Component {
     super()
     this.state = {
       counter: 0,
+      dice: 0,
       player: [
         {
           id: 0,
@@ -17,59 +21,50 @@ class App extends Component {
           color: "yellow",
           positionInitiale: 43,
           positionActuelle: 43,
-          positionFinale1: 56
+          positionFinale1: 56,
+          isActive: true
         },
         {
           id: 1,
           name: "Player 2",
           color: "green",
           positionInitiale: 1,
-          positionActuelle: 1
+          positionActuelle: 1,
+          isActive: true
         },
         {
           id: 2,
           name: "Player 3",
           color: "red",
           positionInitiale: 1,
-          positionActuelle: 15
+          positionActuelle: 15,
+          isActive: true
         }
       ]
 
     }
-    this.handlePlayerMove = this.handlePlayerMove.bind(this)
-    this.handleCounter = this.handleCounter.bind(this)
+    // this.handlePlayerMove = this.handlePlayerMove.bind(this)
+    this.handleDiceClick = this.handleDiceClick.bind(this)
 
   }
-  handleCounter = () => {
-    let checkCounter = this.state.counter
-    if (checkCounter >= 1) {
-      checkCounter = 0
-      this.setState({ counter: checkCounter })
-    }
 
-  }
-  handlePlayerMove = (numPlayer) => {
+  // handlePlayerMove = () => {
+  //   //lance le dé
+  //   let playerIndex = this.state.counter
+  //   // récupère le counter index
+  //   const playersCloned = [...this.state.player]
 
-    let playerIndex = this.state.counter
-    console.log("index player", playerIndex)
-    const playersCloned = [...this.state.player]
-    playersCloned[playerIndex].positionActuelle += 1
-    if (playersCloned[playerIndex].positionActuelle === 57 && numPlayer === 0) {
-      playersCloned[playerIndex].positionActuelle = 1
-    }
-    if (playersCloned[playerIndex].positionActuelle === 42 && numPlayer === 0) {
-      playersCloned[playerIndex].positionActuelle = 57
-    }
-    if (playersCloned[playerIndex].positionActuelle === 56 && numPlayer === 1) {
-      playersCloned[playerIndex].positionActuelle = 57
-    }
-    console.log(" joueur modifir => ", playersCloned[playerIndex])
-
-    this.setState({ player: playersCloned })
-    // this.handleCollision(playerIndex)
-    this.setState({ counter: this.state.counter === 2 ? 0 : this.state.counter + 1 })
-    // this.handleCounter()
-  }
+  //   // vérifie que le joueur est active
+  //   if (this.state.player[this.state.counter].isActive === true) {
+  //     playersCloned[playerIndex].positionActuelle += this.state.dice
+  //     this.setState({ player: playersCloned })
+  //   }
+  //   // vérifie s'il y a collision 
+  //   this.handleCollision(playerIndex)
+  //   // ajoute +1 au counter 
+  //   this.setState({ counter: this.state.counter === 0 ? 1 : 0 })
+  //   // this.handleCounter()
+  // }
   handleCollision = (playerCurrentPosition) => {
     const secondPlayer = playerCurrentPosition === 0 ? 1 : 0;
     const playersCloned = [...this.state.player]
@@ -79,11 +74,62 @@ class App extends Component {
     }
   }
 
+  // // handlePlayerActive = () =>{
+  //   if (this.state.dice === 6) {
+  //     const playersCloned = [...this.state.player]
+  //     playersCloned[this.state.counter].isActive = true
+
+  //     this.setState({
+  //       player: playersCloned
+  //     })
+  //   }
+
+  // // }
+
+  handleDiceClick() {
+    let playersCloned = [...this.state.player]
+    let playerIndex = this.state.counter
+    let randomDice = 1
+    // let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+
+    if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
+      playersCloned[playerIndex].isActive = true
+    } else if (this.state.player[playerIndex].isActive === true) {
+      playersCloned[playerIndex].positionActuelle += randomDice
+    }
+    if (playersCloned[playerIndex].positionActuelle === 57 && playerIndex === 0) {
+      playersCloned[playerIndex].positionActuelle = 1
+    }
+    if (playersCloned[playerIndex].positionActuelle === 42 && playerIndex === 0) {
+      playersCloned[playerIndex].positionActuelle = 57
+    }
+    if (playersCloned[playerIndex].positionActuelle === 56 && playerIndex === 1) {
+      playersCloned[playerIndex].positionActuelle = 57
+    }
+    // const secondPlayer = playerIndex === 0 ? 1 : 0
+    // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
+    //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
+    // }
+
+    this.setState({
+      player: playersCloned,
+      dice: randomDice,
+      counter: playerIndex === 2 ? 0 : playerIndex + 1
+    })
+ 
+     // vérifie s'il y a collision 
+    // this.handleCollision(playerIndex)
+  }
+
+
+
   render() {
 
     console.log("counter", this.state.counter)
 
-    console.log("state player => ", this.state.player)
+    console.log("dice", this.state.dice)
+    console.log("state player => ", this.state.player[0])
+
 
     return (
       <>
@@ -96,6 +142,10 @@ class App extends Component {
           >
             Petits Chevaux
           </div>
+
+          <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+
+          {/* <button onClick={this.handlePlayerMove}>test</button> */}
           <Button />
           <div
             style={{
@@ -512,8 +562,8 @@ class App extends Component {
               <SmallBox row={2} column={2} color="white"></SmallBox>
             </BigBox>
           </div>
+
         </div>
-        <button onClick={() => this.handlePlayerMove(this.state.counter)}>test</button>
 
       </>
 
