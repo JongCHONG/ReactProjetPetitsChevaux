@@ -30,24 +30,44 @@ class App extends Component {
      
     }
     this.handlePlayerMove= this.handlePlayerMove.bind(this)
+    this.handleCounter=this.handleCounter.bind(this)
 
   }
+  handleCounter=()=>{
+    let checkCounter = this.state.counter
+    if (checkCounter >= 1 ){
+      checkCounter = 0
+      this.setState({counter: checkCounter})
+    }
+    
+   }
   handlePlayerMove=()=>{           //e=dice//
+    let playerIndex = this.state.counter
+    console.log("index player", playerIndex)
     const playersCloned = [...this.state.player]
-    playersCloned[0].positionActuelle += 6
+    playersCloned[playerIndex].positionActuelle += 6
+    console.log(" joueur modifir => ",playersCloned[playerIndex])
+
     this.setState({player: playersCloned})
-    this.handleCollision(playersCloned[0].positionActuelle)
+    this.handleCollision(playerIndex)
+    this.setState({counter:  this.state.counter === 0 ? 1 : 0})
+    // this.handleCounter()
   }
-  handleCollision=(position)=>{
+  handleCollision=(playerCurrentPosition)=>{
+    const secondPlayer = playerCurrentPosition === 0 ? 1 : 0;
     const playersCloned = [...this.state.player]
-    if ( playersCloned[1].positionActuelle === position){
-      playersCloned[1].positionActuelle = playersCloned[1].positionInitiale
+    if ( playersCloned[playerCurrentPosition].positionActuelle === playersCloned[secondPlayer].positionActuelle){
+      playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
       this.setState({player : playersCloned})
     }
+
+
 
   }
 
   render() {
+
+    console.log("counter", this.state.counter)
 
     console.log("state player => " ,this.state.player)
     
