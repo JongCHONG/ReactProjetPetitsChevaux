@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
 import Dice from "./components/Dice"
 
+import "./App.css"
+
 
 class App extends Component {
   constructor() {
@@ -20,7 +22,7 @@ class App extends Component {
           positionInitiale: 43,
           positionActuelle: 43,
           positionFinale1: 56,
-          isActive: true
+          isActive: false
         },
         {
           id: 1,
@@ -38,20 +40,19 @@ class App extends Component {
     this.handleDiceClick = this.handleDiceClick.bind(this)
 
   }
- 
-  handlePlayerMove = () => {     
-    this.handleDiceClick()
+
+  handlePlayerMove = () => {
     //lance le dé
     let playerIndex = this.state.counter
     // récupère le counter index
     const playersCloned = [...this.state.player]
 
-        // vérifie que le joueur est active
-    if (this.state.player[this.state.counter].isActive === true){
-    playersCloned[playerIndex].positionActuelle += this.state.dice
-    this.setState({ player: playersCloned })
-  }
-  // vérifie s'il y a collision 
+    // vérifie que le joueur est active
+    if (this.state.player[this.state.counter].isActive === true) {
+      playersCloned[playerIndex].positionActuelle += this.state.dice
+      this.setState({ player: playersCloned })
+    }
+    // vérifie s'il y a collision 
     this.handleCollision(playerIndex)
     // ajoute +1 au counter 
     this.setState({ counter: this.state.counter === 0 ? 1 : 0 })
@@ -65,7 +66,7 @@ class App extends Component {
       this.setState({ player: playersCloned })
     }
   }
- 
+
   // // handlePlayerActive = () =>{
   //   if (this.state.dice === 6) {
   //     const playersCloned = [...this.state.player]
@@ -75,35 +76,33 @@ class App extends Component {
   //       player: playersCloned
   //     })
   //   }
-    
+
   // // }
 
-  handleDiceClick =()=> {
-    let image = "./img/dices.png"
-    const randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
-    this.setState({ dice: randomDice })
-    //  si le joueur pas actif et que dice = 6 : joueur actif
-    if (this.state.dice === 6 && this.state.player[this.state.counter].isActive === false) {
-      const playersCloned = [...this.state.player]
-      playersCloned[this.state.counter].isActive = true
-      this.setState({
-        player: playersCloned
-      })
+  handleDiceClick() {
+    let playersCloned = [...this.state.player]
+    let playerIndex = this.state.counter
+    let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+
+    if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
+      playersCloned[playerIndex].isActive = true
+    } else if (this.state.player[playerIndex].isActive === true) {
+      playersCloned[playerIndex].positionActuelle += randomDice
     }
 
-    // if (randomDice === 1) {
-    //   image = "/img/diceone.png"
-    // } else if (randomDice === 2) {
-    //   image = "/img/dicetwo.png"
-    // } else if (randomDice === 3) {
-    //   image = "/img/dicethree.png"
-    // } else if (randomDice === 4) {
-    //   image = "/img/dicefour.png"
-    // } else if (randomDice === 5) {
-    //   image = "/img/dicefive.png"
-    // } else if (randomDice === 6) {
-    //   image = "/img/dicesix.png"
+    // const secondPlayer = playerIndex === 0 ? 1 : 0
+    // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
+    //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
     // }
+
+    this.setState({
+      player: playersCloned,
+      dice: randomDice,
+      // counter: playerIndex === 0 ? 1 : 0
+    })
+ 
+     // vérifie s'il y a collision 
+    // this.handleCollision(playerIndex)
   }
 
 
@@ -112,8 +111,8 @@ class App extends Component {
 
     console.log("counter", this.state.counter)
 
-    console.log("dice",this.state.dice)
-    console.log("state player => ", this.state.player)
+    console.log("dice", this.state.dice)
+    console.log("state player => ", this.state.player[0])
 
 
     return (
@@ -127,6 +126,9 @@ class App extends Component {
           >
             Petits Chevaux
           </div>
+
+          <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+
           {/* <button onClick={this.handlePlayerMove}>test</button> */}
           <Button />
           <div
@@ -298,8 +300,8 @@ class App extends Component {
             </BigBox>
           </div>
 
-          <Dice image={this.image} handleClick={this.handlePlayerMove}/>
         </div>
+
       </>
 
     );
