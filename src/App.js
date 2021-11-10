@@ -50,9 +50,6 @@ class App extends Component {
     if (this.state.player[this.state.counter].isActive === true){
     playersCloned[playerIndex].positionActuelle += this.state.dice
     this.setState({ player: playersCloned })
-    
-
-
   }
   // vérifie s'il y a collision 
     this.handleCollision(playerIndex)
