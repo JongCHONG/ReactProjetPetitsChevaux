@@ -8,7 +8,7 @@ class Dice extends Component {
         const { handleClick, image } = this.props
         return (
             <div className="down" onClick={handleClick}>
-                <img onClick={handleClick} src={defaultImage} alt="dé"  />
+                <img src={defaultImage} alt="dé"  />
             </div>
         );
     }
