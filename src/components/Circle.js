@@ -4,7 +4,7 @@ class Circle extends Component {
     render() {
         return(
             <>
-            y
+            {this.props.player}
             </>
         )
     }
