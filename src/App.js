@@ -74,6 +74,27 @@ class App extends Component {
     }
   }
 
+  handleDiceClick() {
+    let image = "./img/dices.png"
+    const randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+    this.setState({ dice: randomDice })
+    console.log(randomDice)
+  
+    if (randomDice === 1) {
+      image = "/img/diceone.png"
+    } else if (randomDice === 2) {
+      image = "/img/dicetwo.png"
+    } else if (randomDice === 3) {
+      image = "/img/dicethree.png"
+    } else if (randomDice === 4) {
+      image = "/img/dicefour.png"
+    } else if (randomDice === 5) {
+      image = "/img/dicefive.png"
+    } else if (randomDice === 6) {
+      image = "/img/dicesix.png"
+    }
+  }
+
 
 
   render() {
