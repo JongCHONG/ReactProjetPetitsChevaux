@@ -3,7 +3,7 @@ import Circle from "./Circle";
 
 class SmallBox extends React.Component {
   render() {
-    const { positionActuelle, column, color, id } = this.props
+    const { positionActuelle1, column, color, id } = this.props
     return (
       <div
         style={{
@@ -16,7 +16,7 @@ class SmallBox extends React.Component {
           id: `${id}`,
         }}
       > 
-        {Number(id) === positionActuelle && <Circle />}
+        {Number(id) === positionActuelle1 && <Circle />}
       </div>
     )
   }

@@ -24,7 +24,7 @@ class App extends Component {
           name : "Player 2",
           color : "red",
           positionInitiale : 0,
-          positionActuelle : 6
+          positionActuelle : 43
         }
       ]
      
@@ -122,7 +122,7 @@ class App extends Component {
                 <SmallBox id="50" color="white"></SmallBox>
                 <SmallBox id="60" color="green"></SmallBox>
                 <SmallBox id="4" color="white"></SmallBox>
-                <SmallBox id="49" color="white" positionActuelle={this.state.player[0].positionActuelle}></SmallBox>
+                <SmallBox id="49" color="white" positionActuelle1={this.state.player[0].positionActuelle}></SmallBox>
                 <SmallBox id="61" color="green"></SmallBox>
                 <SmallBox id="5" color="white"></SmallBox>
               </div>
@@ -143,7 +143,7 @@ class App extends Component {
               >
                 {/* Yellow Area */}
                 <SmallBox id="42" color="white"></SmallBox>
-                <SmallBox id="43" color="yellow" positionActuelle={this.state.player[0].positionActuelle}></SmallBox> {/* départ joueur jaune*/}
+                <SmallBox id="43" color="yellow" positionActuelle1={this.state.player[0].positionActuelle}></SmallBox> {/* départ joueur jaune*/}
                 <SmallBox id="44" color="white"></SmallBox>
                 <SmallBox id="45" color="white"></SmallBox>
                 <SmallBox id="46" color="white"></SmallBox>
