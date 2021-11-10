@@ -60,7 +60,7 @@ class App extends Component {
       playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
       this.setState({player : playersCloned})
     }
-
+  }
 
   handleDice() {
 
@@ -74,7 +74,7 @@ class App extends Component {
     }
   }
 
-  }
+
 
   render() {
 
