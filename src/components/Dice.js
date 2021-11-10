@@ -28,7 +28,6 @@ class Dice extends Component {
         return (
             <div className="down">
                 <div className={diceClassName} onClick={handleClick}></div>
-                
             </div >
         );
     }

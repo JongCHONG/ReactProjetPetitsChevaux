@@ -67,18 +67,6 @@ class App extends Component {
     }
   }
 
-  // // handlePlayerActive = () =>{
-  //   if (this.state.dice === 6) {
-  //     const playersCloned = [...this.state.player]
-  //     playersCloned[this.state.counter].isActive = true
-
-  //     this.setState({
-  //       player: playersCloned
-  //     })
-  //   }
-
-  // // }
-
   handleDiceClick() {
     let playersCloned = [...this.state.player]
     let playerIndex = this.state.counter
@@ -89,11 +77,6 @@ class App extends Component {
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
-
-    // const secondPlayer = playerIndex === 0 ? 1 : 0
-    // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
-    //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
-    // }
 
     this.setState({
       player: playersCloned,
