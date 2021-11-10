@@ -1,21 +1,24 @@
-import React from "react";
+import React from "react"
+import Circle from "./Circle";
 
 class SmallBox extends React.Component {
   render() {
+    const { positionActuelle, column, color, id } = this.props
     return (
       <div
         style={{
-          gridColumn: `${this.props.column}`,
+          gridColumn: `${column}`,
           width: "50px",
           height: "50px",
-          backgroundColor: `${this.props.color}`,
+          backgroundColor: `${color}`,
           padding: "10px",
           border: "1px solid black",
-          id: `${this.props.id}`,
+          id: `${id}`,
         }}
-      >
+      > 
+        {Number(id) === positionActuelle && <Circle />}
       </div>
-    );
+    )
   }
 }
 export default SmallBox;
