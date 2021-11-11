@@ -28,7 +28,7 @@ class App extends Component {
           name: "Player 2",
           color: "green",
           positionInitiale: 1,
-          positionActuelle: 44,
+          positionActuelle: 1,
           isActive: true
         },
         {
@@ -36,7 +36,7 @@ class App extends Component {
           name: "Player 3",
           color: "red",
           positionInitiale: 15,
-          positionActuelle: 2,
+          positionActuelle: 15,
           isActive: true
         },
         {
@@ -44,7 +44,7 @@ class App extends Component {
           name: "Player 4",
           color: "blue",
           positionInitiale: 29,
-          positionActuelle: 16,
+          positionActuelle: 29,
           isActive: true
         }
       ]
@@ -96,16 +96,16 @@ class App extends Component {
   handleDiceClick() {
     let playersCloned = [...this.state.player]
     let playerIndex = this.state.counter
-    let randomDice = 1 //pour tester
-    // let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+    // let randomDice = 1
+    let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
 
     if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
       playersCloned[playerIndex].isActive = true
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
-    if (playersCloned[playerIndex].positionActuelle === 57 && playerIndex === 0) {
-      playersCloned[playerIndex].positionActuelle = 1
+    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0) {
+      playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
     }
     if (playersCloned[playerIndex].positionActuelle === 42 && playerIndex === 0) {
       playersCloned[playerIndex].positionActuelle = 57
@@ -151,9 +151,13 @@ class App extends Component {
 
   render() {
 
-    console.log("counter", this.state.counter)
+    // console.log("counter", this.state.counter)
     console.log("dice", this.state.dice)
     console.log("state player => ", this.state.player)
+    console.log("position Joueur 1 ", this.state.player[0].positionActuelle);
+    console.log("position Joueur 2 ", this.state.player[1].positionActuelle);
+    console.log("position Joueur 3 ", this.state.player[2].positionActuelle);
+    console.log("position Joueur 4 ", this.state.player[3].positionActuelle);
 
 
     return (
