@@ -23,7 +23,7 @@ class App extends Component {
           positionActuelle: 43,
           isActive: true,
           after56: false,
-          yellowbonus: false
+          bonus: false
         },
         {
           id: 1,
@@ -32,7 +32,7 @@ class App extends Component {
           positionInitiale: 1,
           positionActuelle: 1,
           isActive: true,
-          greenbonus: false
+          bonus: false
         },
         {
           id: 2,
@@ -42,7 +42,7 @@ class App extends Component {
           positionActuelle: 15,
           isActive: true,
           after56: false,
-          redbonus: false
+          bonus: false
         },
         {
           id: 3,
@@ -52,7 +52,7 @@ class App extends Component {
           positionActuelle: 29,
           isActive: true,
           after56: false,
-          bluebonus: false
+          bonus: false
         }
       ]
 
@@ -111,42 +111,44 @@ class App extends Component {
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
-    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0 && playersCloned[playerIndex].yellowbonus === false) {
+    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
       playersCloned[playerIndex].after56 = true
-      playersCloned[playerIndex].yellowbonus = true
+      playersCloned[playerIndex].bonus = true
     }
     if (playersCloned[playerIndex].positionActuelle >= 42 && playerIndex === 0 && playersCloned[playerIndex].after56 === true) {
       playersCloned[playerIndex].positionActuelle = 57
       playersCloned[playerIndex].after56 = false
     }
-    if (playersCloned[playerIndex].positionActuelle >= 56 && playerIndex === 1 && playersCloned[playerIndex].greenbonus === false) {
+    if (playersCloned[playerIndex].positionActuelle >= 56 && playerIndex === 1 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = 57
-      playersCloned[playerIndex].greenbonus = true
+      playersCloned[playerIndex].bonus = true
     }
-    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 2 && playersCloned[playerIndex].redbonus === false) {
+    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 2 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
       playersCloned[playerIndex].after56 = true
-      playersCloned[playerIndex].redbonus = true
+      playersCloned[playerIndex].bonus = true
     }
     if (playersCloned[playerIndex].positionActuelle >= 14 && playerIndex === 2 && playersCloned[playerIndex].after56 === true) {
       playersCloned[playerIndex].positionActuelle = 57
       playersCloned[playerIndex].after56 = false
     }
-    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 3 && playersCloned[playerIndex].bluebonus === false) {
+    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 3 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
       playersCloned[playerIndex].after56 = true
-      playersCloned[playerIndex].bluebonus = true
+      playersCloned[playerIndex].bonus = true
     }
     if (playersCloned[playerIndex].positionActuelle >= 28 && playerIndex === 3 && playersCloned[playerIndex].after56 === true) {
       playersCloned[playerIndex].positionActuelle = 57
       playersCloned[playerIndex].after56 = false
     }
     // const secondPlayer = playerIndex === 0 ? 1 : 0
-    playersCloned.forEach((element, index) => {
+    playersCloned.forEach((element, index) => { // collision
       if (playerIndex !== index) {
         if (playersCloned[playerIndex].positionActuelle === playersCloned[index].positionActuelle) {
           playersCloned[index].positionActuelle = playersCloned[index].positionInitiale
+          playersCloned[index].after56 = false
+          playersCloned[playerIndex].bonus = false
         }
       } 
     })
