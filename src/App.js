@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BigBox from './components/BigBox';
 import SmallBox from './components/Smallbox';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Button from './components/Button';
+// import Button from './components/Button';
 import Dice from "./components/Dice"
 
 import "./App.css"
@@ -21,7 +21,6 @@ class App extends Component {
           color: "yellow",
           positionInitiale: 43,
           positionActuelle: 43,
-          positionFinale1: 56,
           isActive: true
         },
         {
@@ -29,23 +28,23 @@ class App extends Component {
           name: "Player 2",
           color: "green",
           positionInitiale: 1,
-          positionActuelle: 1,
+          positionActuelle: 44,
           isActive: true
         },
         {
           id: 2,
           name: "Player 3",
           color: "red",
-          positionInitiale: 1,
-          positionActuelle: 15,
+          positionInitiale: 15,
+          positionActuelle: 2,
           isActive: true
         },
         {
           id: 3,
           name: "Player 4",
           color: "blue",
-          positionInitiale: 1,
-          positionActuelle: 27,
+          positionInitiale: 29,
+          positionActuelle: 16,
           isActive: true
         }
       ]
@@ -97,7 +96,7 @@ class App extends Component {
   handleDiceClick() {
     let playersCloned = [...this.state.player]
     let playerIndex = this.state.counter
-    let randomDice = 1
+    let randomDice = 1 //pour tester
     // let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
 
     if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
@@ -127,6 +126,13 @@ class App extends Component {
       playersCloned[playerIndex].positionActuelle = 57
     }
     // const secondPlayer = playerIndex === 0 ? 1 : 0
+    playersCloned.forEach((element, index) => {
+      if (playerIndex !== index) {
+        if (playersCloned[playerIndex].positionActuelle === playersCloned[index].positionActuelle) {
+          playersCloned[index].positionActuelle = playersCloned[index].positionInitiale
+        }
+      } 
+    })
     // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
     //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
     // }
@@ -146,9 +152,8 @@ class App extends Component {
   render() {
 
     console.log("counter", this.state.counter)
-
     console.log("dice", this.state.dice)
-    console.log("state player => ", this.state.player[0])
+    console.log("state player => ", this.state.player)
 
 
     return (
@@ -164,9 +169,7 @@ class App extends Component {
           </div>
 
           <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
-
-          {/* <button onClick={this.handlePlayerMove}>test</button> */}
-          <Button />
+          {/* <Button /> */}
           <div
             style={{
               height: "40vh",
@@ -776,8 +779,12 @@ class App extends Component {
                 positionActuelle2={this.state.player[1].positionActuelle}
                 positionActuelle3={this.state.player[2].positionActuelle}
                 positionActuelle4={this.state.player[3].positionActuelle}
+                ></SmallBox>
+              <SmallBox 
+                id="58" 
+                color="blue"
+                positionActuelle4={this.state.player[3].positionActuelle}
               ></SmallBox>
-              <SmallBox id="58" color="blue"></SmallBox>
               <SmallBox
                 id="24"
                 color="white"
