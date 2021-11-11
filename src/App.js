@@ -195,7 +195,7 @@ class App extends Component {
             {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
             {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !` }
             {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !` }
-            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !` )}
+            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !` )} <br/>
             {`${this.state.player[this.state.counter].name} à toi de jouer !`}
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
           </div>
