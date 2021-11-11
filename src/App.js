@@ -21,7 +21,7 @@ class App extends Component {
           color: "yellow",
           positionInitiale: 43,
           positionActuelle: 43,
-          isActive: true,
+          isActive: false,
           after56: false,
           bonus: false
         },
@@ -31,7 +31,7 @@ class App extends Component {
           color: "green",
           positionInitiale: 1,
           positionActuelle: 1,
-          isActive: true,
+          isActive: false,
           bonus: false
         },
         {
@@ -40,7 +40,7 @@ class App extends Component {
           color: "red",
           positionInitiale: 15,
           positionActuelle: 15,
-          isActive: true,
+          isActive: false,
           after56: false,
           bonus: false
         },
@@ -50,7 +50,7 @@ class App extends Component {
           color: "blue",
           positionInitiale: 29,
           positionActuelle: 29,
-          isActive: true,
+          isActive: false,
           after56: false,
           bonus: false
         }
@@ -79,14 +79,14 @@ class App extends Component {
   //   this.setState({ counter: this.state.counter === 0 ? 1 : 0 })
   //   // this.handleCounter()
   // }
-  handleCollision = (playerCurrentPosition) => {
-    const secondPlayer = playerCurrentPosition === 0 ? 1 : 0;
-    const playersCloned = [...this.state.player]
-    if (playersCloned[playerCurrentPosition].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
-      playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
-      this.setState({ player: playersCloned })
-    }
-  }
+  // handleCollision = (playerCurrentPosition) => {
+  //   const secondPlayer = playerCurrentPosition === 0 ? 1 : 0;
+  //   const playersCloned = [...this.state.player]
+  //   if (playersCloned[playerCurrentPosition].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
+  //     playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
+  //     this.setState({ player: playersCloned })
+  //   }
+  // }
 
   // // handlePlayerActive = () =>{
   //   if (this.state.dice === 6) {
@@ -150,7 +150,7 @@ class App extends Component {
           playersCloned[index].after56 = false
           playersCloned[playerIndex].bonus = false
         }
-      } 
+      }
     })
     // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
     //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
@@ -170,13 +170,13 @@ class App extends Component {
 
   render() {
 
-    // console.log("counter", this.state.counter)
+    console.log("counter", this.state.counter)
     console.log("dice", this.state.dice)
-    console.log("state player => ", this.state.player)
-    console.log("position Joueur 1 ", this.state.player[0].positionActuelle);
-    console.log("position Joueur 2 ", this.state.player[1].positionActuelle);
-    console.log("position Joueur 3 ", this.state.player[2].positionActuelle);
-    console.log("position Joueur 4 ", this.state.player[3].positionActuelle);
+    // console.log("state player => ", this.state.player)
+    // console.log("position Joueur 1 ", this.state.player[0].positionActuelle);
+    // console.log("position Joueur 2 ", this.state.player[1].positionActuelle);
+    // console.log("position Joueur 3 ", this.state.player[2].positionActuelle);
+    // console.log("position Joueur 4 ", this.state.player[3].positionActuelle);
 
 
     return (
@@ -190,8 +190,15 @@ class App extends Component {
           >
             Petits Chevaux
           </div>
+          <div className="d-flex justify-content-center">
 
-          <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+            {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
+            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !` }
+            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !` }
+            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !` )}
+            {`${this.state.player[this.state.counter].name} à toi de jouer !`}
+            <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+          </div>
           {/* <Button /> */}
           <div
             style={{
@@ -243,10 +250,10 @@ class App extends Component {
                 color="yellow"
                 positionActuelle1={this.state.player[0].positionActuelle}
               ></SmallBox>
-              <SmallBox 
-                id="63" 
-                color="black" 
-                positionActuelle1={this.state.player[0].positionActuelle} 
+              <SmallBox
+                id="63"
+                color="black"
+                positionActuelle1={this.state.player[0].positionActuelle}
                 positionActuelle2={this.state.player[1].positionActuelle}
               ></SmallBox>
               <SmallBox
@@ -262,8 +269,8 @@ class App extends Component {
                 positionActuelle3={this.state.player[2].positionActuelle}
                 positionActuelle4={this.state.player[3].positionActuelle}
               ></SmallBox>
-              <SmallBox 
-                id="62" 
+              <SmallBox
+                id="62"
                 color="blue"
                 positionActuelle4={this.state.player[3].positionActuelle}
               ></SmallBox>
@@ -802,9 +809,9 @@ class App extends Component {
                 positionActuelle2={this.state.player[1].positionActuelle}
                 positionActuelle3={this.state.player[2].positionActuelle}
                 positionActuelle4={this.state.player[3].positionActuelle}
-                ></SmallBox>
-              <SmallBox 
-                id="58" 
+              ></SmallBox>
+              <SmallBox
+                id="58"
                 color="blue"
                 positionActuelle4={this.state.player[3].positionActuelle}
               ></SmallBox>
