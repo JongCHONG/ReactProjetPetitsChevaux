@@ -21,7 +21,9 @@ class App extends Component {
           color: "yellow",
           positionInitiale: 43,
           positionActuelle: 43,
-          isActive: true
+          isActive: true,
+          after56: false,
+          yellowbonus: false
         },
         {
           id: 1,
@@ -104,13 +106,16 @@ class App extends Component {
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
-    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0) {
+    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0 && playersCloned[playerIndex].yellowbonus === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
+      playersCloned[playerIndex].after56 = true
+      playersCloned[playerIndex].yellowbonus = true
     }
-    if (playersCloned[playerIndex].positionActuelle === 42 && playerIndex === 0) {
+    if (playersCloned[playerIndex].positionActuelle >= 42 && playerIndex === 0 && playersCloned[playerIndex].after56 === true) {
       playersCloned[playerIndex].positionActuelle = 57
+      playersCloned[playerIndex].after56 = false
     }
-    if (playersCloned[playerIndex].positionActuelle === 56 && playerIndex === 1) {
+    if (playersCloned[playerIndex].positionActuelle >= 56 && playerIndex === 1) {
       playersCloned[playerIndex].positionActuelle = 57
     }
     if (playersCloned[playerIndex].positionActuelle === 57 && playerIndex === 2) {
