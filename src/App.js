@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       counter: 0,
       dice: 0,
+      // message: "",
       player: [
         {
           id: 0,
@@ -64,6 +65,11 @@ class App extends Component {
 
   }
 
+  componentDidUpdate(prevProps, prevState) {
+ 
+    console.log(prevState)
+  
+  }
   // handlePlayerMove = () => {
   //   //lance le dé
   //   let playerIndex = this.state.counter
@@ -163,9 +169,12 @@ class App extends Component {
     //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
     // }
 
+ 
+    
     this.setState({
       player: playersCloned,
       dice: randomDice,
+  
       counter: playerIndex === 3 ? 0 : playerIndex + 1
     })
 //  ajustement dé 6 relance
@@ -176,6 +185,7 @@ class App extends Component {
     //   count = count +1
     // }
     // this.handleCollision(playerIndex)
+ 
   }
 
 
@@ -184,12 +194,18 @@ class App extends Component {
 
     console.log("counter", this.state.counter)
     console.log("dice", this.state.dice)
+    const { dice, player, counter } = this.state
     // console.log("state player => ", this.state.player)
     // console.log("position Joueur 1 ", this.state.player[0].positionActuelle);
     // console.log("position Joueur 2 ", this.state.player[1].positionActuelle);
     // console.log("position Joueur 3 ", this.state.player[2].positionActuelle);
     // console.log("position Joueur 4 ", this.state.player[3].positionActuelle);
 
+    // {dice !== 0 && (counter === 1 && `${player[0].name} a eu ${dice} avec la dé du destin !`)}
+    // {counter === 2 && `${player[1].name} a eu ${dice} avec la dé du destin !` }
+    // {counter === 3 && `${player[2].name} a eu ${dice} avec la dé du destin !` }
+    // {dice !== 0 && (counter === 0 && `${player[3].name} a eu ${dice} avec la dé du destin !` )} <br/>
+    // {`${player[counter].name} à toi de jouer !`}
 
     return (
       <>
@@ -205,30 +221,26 @@ class App extends Component {
           <div className="d-flex justify-content-center">
 
           {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
-          {this.state.counter===0&&<h3 style={{
+          {counter===0&&<h3 style={{
               color:'yellow'
-              }}>{this.state.player[0].name} </h3>}
-          {this.state.counter===1&&<h3 style={{
-              color:'red'
-              }}>Joueur 2 </h3>}
-          {this.state.counter===2&&<h3 style={{
+              }}>{player[0].name} </h3>}
+          {counter===1&&<h3 style={{
               color:'green'
+              }}>Joueur 2 </h3>}
+          {counter===2&&<h3 style={{
+              color:'red'
               }}>Joueur 3 </h3>}
-          {this.state.counter===3&&<h3 style={{
+          {counter===3&&<h3 style={{
               color:'blue'
               }}>Joueur 4 </h3>}
 
-
-          {/* <button onClick={this.handlePlayerMove}>test</button> */}
-          {/* <Button /> */}
-            {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
-            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !` }
-            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !` }
-            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !` )} <br/>
+            {dice !== 0 && (counter === 1 && `${player[0].name} a eu ${dice} avec la dé du destin !`)}
+            {counter === 2 && `${player[1].name} a eu ${dice} avec la dé du destin !` }
+            {counter === 3 && `${player[2].name} a eu ${dice} avec la dé du destin !` }
+            {dice !== 0 && (counter === 0 && `${player[3].name} a eu ${dice} avec la dé du destin !` )} <br/>
             {`${this.state.player[this.state.counter].name} à toi de jouer !`}
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
           </div>
-          {/* <Button /> */}
           <div
             style={{
               height: "40vh",
