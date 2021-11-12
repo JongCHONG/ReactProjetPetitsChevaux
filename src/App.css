@@ -1,4 +1,6 @@
-body {background-color: darkgray;}
+body {
+  background-color: darkgray;
+}
 
 .button {
   display: flex;
@@ -75,11 +77,18 @@ img {
 }
 
 .rules {
-  display         : flex;
-  width           : 25%;
-  margin-top      : -650px;
-  background-image: url("./img/cheval.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  display            : flex;
+  font-weight        : bold;
+  width              : 25%;
+  margin-top         : -650px;
 }
+
+.rules p {
+  font-size: 17px;
+}
+
+.win {
+  display: flex;
+  justify-content: end;
+}
+
