@@ -12,10 +12,6 @@ body {
   justify-content: center;
 }
 
-.down {
-  width: 200px;
-}
-
 img {
   width: 100%;
 }
@@ -26,7 +22,7 @@ img {
   background-image   : url("./img/dices.png");
   background-size    : cover;
   background-position: center;
-  margin-left: 20px;
+  margin-left        : 20px;
 }
 
 .firstDice {
@@ -78,24 +74,30 @@ img {
 }
 
 .rules {
-  display            : flex;
-  font-weight        : bold;
-  width              : 25%;
-  margin-top         : -650px;
+  display    : flex;
+  font-weight: bold;
+  width      : 25%;
+  margin-top : -650px;
 }
 
 .rules p {
   font-size: 17px;
-  margin-left: 2px;
 }
 
 .win {
-  display: flex;
-  font-size: 20px;
+  display    : flex;
+  font-size  : 20px;
   font-weight: bold;
 }
 
 .pawn {
-  border: white solid 2px;
+  border          : white solid 2px;
   background-color: white;
+}
+
+#reset {
+  margin          : 10px;
+  border-radius   : 3px;
+  background-color: black;
+  color           : white;
 }

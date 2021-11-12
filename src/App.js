@@ -13,28 +13,28 @@ import Rules from './components/Rules';
 const initialPlayer = [
   {
     id: 0,
-    name: "Player 1",
+    name: "Jong",
     color: "yellow",
     positionInitiale: 43,
     positionActuelle: 43,
     isActive: false,
     after56: false,
     bonus: false,
-    victory : false
+    victory: false
   },
   {
     id: 1,
-    name: "Player 2",
+    name: "Edouard",
     color: "green",
     positionInitiale: 1,
     positionActuelle: 1,
     isActive: false,
     bonus: false,
-    victory:false,
+    victory: false,
   },
   {
     id: 2,
-    name: "Player 3",
+    name: "Jeremy",
     color: "red",
     positionInitiale: 15,
     positionActuelle: 15,
@@ -45,7 +45,7 @@ const initialPlayer = [
   },
   {
     id: 3,
-    name: "Player 4",
+    name: "Chaïma",
     color: "blue",
     positionInitiale: 29,
     positionActuelle: 29,
@@ -108,7 +108,7 @@ class App extends Component {
   //   }
 
   // // }
-  handleReset =() =>{
+  handleReset = () => {
 
     this.setState({
       counter: 0,
@@ -117,28 +117,28 @@ class App extends Component {
       player: [
         {
           id: 0,
-          name: "Player 1",
+          name: "Jong",
           color: "yellow",
           positionInitiale: 43,
           positionActuelle: 43,
           isActive: false,
           after56: false,
           bonus: false,
-          victory : false
+          victory: false
         },
         {
           id: 1,
-          name: "Player 2",
+          name: "Edouard",
           color: "green",
           positionInitiale: 1,
           positionActuelle: 1,
           isActive: false,
           bonus: false,
-          victory:false,
+          victory: false,
         },
         {
           id: 2,
-          name: "Player 3",
+          name: "Jeremy",
           color: "red",
           positionInitiale: 15,
           positionActuelle: 15,
@@ -149,7 +149,7 @@ class App extends Component {
         },
         {
           id: 3,
-          name: "Player 4",
+          name: "Chaïma",
           color: "blue",
           positionInitiale: 29,
           positionActuelle: 29,
@@ -163,18 +163,18 @@ class App extends Component {
     })
 
   }
-  handleVictory=(playerIndex,playersCloned)=>{
+  handleVictory = (playerIndex, playersCloned) => {
     //  let playersCloned = [...this.state.player]
-    if (playersCloned[playerIndex].positionActuelle === 63){
-      playersCloned[playerIndex].victory= true
+    if (playersCloned[playerIndex].positionActuelle === 63) {
+      playersCloned[playerIndex].victory = true
       this.setState({
-        player : playersCloned,
+        player: playersCloned,
         diceBlock: true
       })
     }
   }
   handleDiceClick() {
-    if (this.state.diceBlock === true){
+    if (this.state.diceBlock === true) {
       return
     }
     let playersCloned = [...this.state.player]
@@ -187,7 +187,7 @@ class App extends Component {
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
- 
+
     if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
       playersCloned[playerIndex].after56 = true
@@ -235,7 +235,7 @@ class App extends Component {
     // } else {
     //   playerIndex = playerIndex
     // }
-  
+
     // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
     //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
     // }
@@ -243,23 +243,23 @@ class App extends Component {
     this.setState({
       player: playersCloned,
       dice: randomDice,
-      counter: this.state.dice ===6? playerIndex : playerIndex === 3 ? 0 : playerIndex + 1
+      counter: this.state.dice === 6 ? playerIndex : playerIndex === 3 ? 0 : playerIndex + 1
     })
-    
-   this.handleVictory(playerIndex,playersCloned) 
-    }
-    // doubleSix =()=>{
-    //   let playerIndex = this.state.counter
-    //   if ( this.state.dice === 6){
-    //     this.setState({ 
-    //       counter : playerIndex-1})       
-    //     }
-//  ajustement dé 6 relance
-    // // vérifie s'il y a collision 
-    //      if ( randomDice === 6){
-    //   playerIndex = playerIndex - 1
-    // }
-    // this.handleCollision(playerIndex)
+
+    this.handleVictory(playerIndex, playersCloned)
+  }
+  // doubleSix =()=>{
+  //   let playerIndex = this.state.counter
+  //   if ( this.state.dice === 6){
+  //     this.setState({ 
+  //       counter : playerIndex-1})       
+  //     }
+  //  ajustement dé 6 relance
+  // // vérifie s'il y a collision 
+  //      if ( randomDice === 6){
+  //   playerIndex = playerIndex - 1
+  // }
+  // this.handleCollision(playerIndex)
 
 
   render() {
@@ -276,7 +276,6 @@ class App extends Component {
 
     return (
       <>
-      <button onClick ={this.handleReset}> reset ? </button>
         <div
           style={{ width: "750px", height: "800px" }}
           className="bg-light mx-auto my-5"
@@ -286,8 +285,8 @@ class App extends Component {
           >
             Petits Chevaux
           </div>
-          <div className="d-flex justify-content-center">
 
+          <div className="d-flex justify-content-around">
             {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
             {this.state.counter === 0 && <h3 style={{
               color: 'yellow',
@@ -320,6 +319,7 @@ class App extends Component {
               {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec le dé du destin !`)} <br />
               {`${this.state.player[this.state.counter].name} à toi de jouer !`}</div>
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+              <button id="reset" onClick={this.handleReset}> reset ? </button>
             <Winner players={this.state.player} />
           </div>
           {/* <Button /> */}

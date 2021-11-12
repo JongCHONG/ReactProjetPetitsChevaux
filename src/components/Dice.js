@@ -25,7 +25,7 @@ class Dice extends Component {
             diceClassName = "defaultDice"
         }
         return (
-            <div className="down">
+            <div>
                 <div className={diceClassName} onClick={handleClick}></div>
                 
             </div >
