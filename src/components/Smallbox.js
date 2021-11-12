@@ -16,6 +16,7 @@ class SmallBox extends React.Component {
           id: `${id}`,
         }}
       > 
+        {/* // {Number(id) === positionActuelle && <Circle counter ={this.props.joueur}/>} */}
         {Number(id) === positionActuelle1 && <Circle player="1"/>}
         {Number(id) === positionActuelle2 && <Circle player="2"/>}
         {Number(id) === positionActuelle3 && <Circle player="3"/>}
