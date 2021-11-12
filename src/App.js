@@ -7,6 +7,7 @@ import Dice from "./components/Dice"
 
 
 import "./App.css"
+import Rules from './components/Rules';
 
 
 class App extends Component {
@@ -905,8 +906,10 @@ class App extends Component {
             </BigBox>
           </div>
 
-        </div>
 
+
+        </div>
+        <div className="rules"> <Rules /></div>
       </>
 
     );

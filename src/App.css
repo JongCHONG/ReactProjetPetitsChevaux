@@ -71,3 +71,9 @@ img {
   background-size    : cover;
   background-position: center;
 }
+
+.rules {
+  display: flex;
+  width: 25%;
+  margin-top: -650px;
+}
