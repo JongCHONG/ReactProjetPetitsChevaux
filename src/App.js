@@ -20,7 +20,7 @@ class App extends Component {
       player: [
         {
           id: 0,
-          name: "Player 1",
+          name: "Jong",
           color: "yellow",
           positionInitiale: 43,
           positionActuelle: 43,
@@ -30,7 +30,7 @@ class App extends Component {
         },
         {
           id: 1,
-          name: "Player 2",
+          name: "Edouard",
           color: "green",
           positionInitiale: 1,
           positionActuelle: 1,
@@ -40,7 +40,7 @@ class App extends Component {
         },
         {
           id: 2,
-          name: "Player 3",
+          name: "Jeremy",
           color: "red",
           positionInitiale: 15,
           positionActuelle: 15,
@@ -50,7 +50,7 @@ class App extends Component {
         },
         {
           id: 3,
-          name: "Player 4",
+          name: "Chaïma",
           color: "blue",
           positionInitiale: 29,
           positionActuelle: 29,
@@ -231,11 +231,12 @@ class App extends Component {
 
             {/* <button onClick={this.handlePlayerMove}>test</button> */}
             {/* <Button /> */}
-            {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
-            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !`}
-            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !`}
-            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !`)} <br />
-            {`${this.state.player[this.state.counter].name} à toi de jouer !`}
+            <div>
+              {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
+              {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !`}
+              {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !`}
+              {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !`)} <br />
+              {`${this.state.player[this.state.counter].name} à toi de jouer !`}</div>
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
             <Winner players={this.state.player} />
           </div>
