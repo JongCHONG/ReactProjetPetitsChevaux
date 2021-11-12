@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 
 class Circle extends Component {
     render() {
-        let yellow = require ("../img/horseYellow.svg")
+        // let yellow = require ("../img/horseYellow.svg")
         return(
             <>
             {/* {this.props.counter === 0 && <img src = {yellow}/>} */}
@@ -14,6 +14,7 @@ class Circle extends Component {
             {this.props.counter === 2 && <img url = "../img/horseGreen.svg"/>}
             {this.props.counter === 3 && <img url = "../img/horseBlue.svg"/>} */}
 
+            {this.props.player}
             </>
         )
     }
