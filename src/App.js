@@ -207,16 +207,24 @@ class App extends Component {
 
             {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
             {this.state.counter === 0 && <h3 style={{
-              color: 'yellow'
+              color: 'yellow',
+              marginTop: "11px",
+              marginRight: "5px"
             }}>{this.state.player[0].name} </h3>}
             {this.state.counter === 1 && <h3 style={{
-              color: 'green'
+              color: 'green',
+              marginTop: "11px",
+              marginRight: "5px"
             }}>{this.state.player[1].name} </h3>}
             {this.state.counter === 2 && <h3 style={{
-              color: 'red'
+              color: 'red',
+              marginTop: "11px",
+              marginRight: "5px"
             }}>{this.state.player[2].name} </h3>}
             {this.state.counter === 3 && <h3 style={{
-              color: 'blue'
+              color: 'blue',
+              marginTop: "11px",
+              marginRight: "5px"
             }}>{this.state.player[3].name} </h3>}
 
 
