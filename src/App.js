@@ -4,7 +4,7 @@ import SmallBox from './components/Smallbox';
 import Winner from './components/Winner';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Button from './components/Button';
-import Dice from "./components/Dice"
+import Dice from "./components/Dice";
 
 
 import "./App.css"
@@ -232,10 +232,10 @@ class App extends Component {
             {/* <button onClick={this.handlePlayerMove}>test</button> */}
             {/* <Button /> */}
             <div>
-              {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
-              {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !`}
-              {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !`}
-              {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !`)} <br />
+              {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec le dé du destin !`)}
+              {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec le dé du destin !`}
+              {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec le dé du destin !`}
+              {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec le dé du destin !`)} <br />
               {`${this.state.player[this.state.counter].name} à toi de jouer !`}</div>
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
             <Winner players={this.state.player} />
