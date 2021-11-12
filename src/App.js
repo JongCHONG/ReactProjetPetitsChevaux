@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from './components/Button';
 import Dice from "./components/Dice"
 
+
 import "./App.css"
 
 
@@ -22,7 +23,8 @@ class App extends Component {
           positionInitiale: 43,
           positionActuelle: 43,
           positionFinale1: 56,
-          isActive: false
+          isActive: false,
+          hasFinish: true 
         },
         {
           id: 1,
@@ -30,7 +32,8 @@ class App extends Component {
           color: "red",
           positionInitiale: 0,
           positionActuelle: 6,
-          isActive: true
+          isActive: false,
+          hasFinish: true
         }
       ]
 
@@ -66,38 +69,29 @@ class App extends Component {
       this.setState({ player: playersCloned })
     }
   }
-
-  // // handlePlayerActive = () =>{
-  //   if (this.state.dice === 6) {
-  //     const playersCloned = [...this.state.player]
-  //     playersCloned[this.state.counter].isActive = true
-
-  //     this.setState({
-  //       player: playersCloned
-  //     })
-  //   }
-
-  // // }
-
   handleDiceClick() {
     let playersCloned = [...this.state.player]
     let playerIndex = this.state.counter
-    let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+    let randomDice = 6
+    let count = this.state.counter
+    // Math.floor(Math.random() * (6 - 1 + 1) + 1)
+ 
 
     if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
       playersCloned[playerIndex].isActive = true
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
-
-    // const secondPlayer = playerIndex === 0 ? 1 : 0
-    // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
-    //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
-    // }
+    if (randomDice ===6){
+      count = count
+    } else if ( randomDice =! 6){
+      count = count +1
+    }
 
     this.setState({
       player: playersCloned,
       dice: randomDice,
+      counter : count
       // counter: playerIndex === 0 ? 1 : 0
     })
  
@@ -112,7 +106,7 @@ class App extends Component {
     console.log("counter", this.state.counter)
 
     console.log("dice", this.state.dice)
-    console.log("state player => ", this.state.player[0])
+    console.log("state player => ", this.state.player)
 
 
     return (
@@ -128,6 +122,19 @@ class App extends Component {
           </div>
 
           <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+          {this.state.counter===0&&<h3 style={{
+              color:'yellow'
+              }}>Joueur 1 </h3>}
+          {this.state.counter===1&&<h3 style={{
+              color:'red'
+              }}>Joueur 2 </h3>}
+          {this.state.counter===2&&<h3 style={{
+              color:'green'
+              }}>Joueur 3 </h3>}
+          {this.state.counter===3&&<h3 style={{
+              color:'blue'
+              }}>Joueur 4 </h3>}
+
 
           {/* <button onClick={this.handlePlayerMove}>test</button> */}
           <Button />
@@ -210,7 +217,7 @@ class App extends Component {
             >
               {/* Yellow Area */}
               <SmallBox id="42" color="white"></SmallBox>
-              <SmallBox id="43" color="yellow" positionActuelle={this.state.player[0].positionActuelle}></SmallBox> {/* départ joueur jaune*/}
+              <SmallBox id="43" color="yellow" joueur = {this.state.counter} positionActuelle={this.state.player[0].positionActuelle}></SmallBox> {/* départ joueur jaune*/}
               <SmallBox id="44" color="white"></SmallBox>
               <SmallBox id="45" color="white"></SmallBox>
               <SmallBox id="46" color="white"></SmallBox>
