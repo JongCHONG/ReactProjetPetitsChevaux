@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BigBox from './components/BigBox';
 import SmallBox from './components/Smallbox';
+import Winner from './components/Winner';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import Button from './components/Button';
 import Dice from "./components/Dice"
@@ -35,6 +36,7 @@ class App extends Component {
           positionInitiale: 1,
           positionActuelle: 1,
           isActive: false,
+          after56: false,
           bonus: false
         },
         {
@@ -177,7 +179,7 @@ class App extends Component {
   
       counter: playerIndex === 3 ? 0 : playerIndex + 1
     })
-//  ajustement dé 6 relance
+    //  ajustement dé 6 relance
     // vérifie s'il y a collision 
     //     if (randomDice ===6){
     //   count = count
@@ -220,6 +222,7 @@ class App extends Component {
           </div>
           <div className="d-flex justify-content-center">
 
+<<<<<<< HEAD
           {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
           {counter===0&&<h3 style={{
               color:'yellow'
@@ -238,8 +241,40 @@ class App extends Component {
             {counter === 2 && `${player[1].name} a eu ${dice} avec la dé du destin !` }
             {counter === 3 && `${player[2].name} a eu ${dice} avec la dé du destin !` }
             {dice !== 0 && (counter === 0 && `${player[3].name} a eu ${dice} avec la dé du destin !` )} <br/>
+=======
+            {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
+            {this.state.counter === 0 && <h3 style={{
+              color: 'yellow',
+              marginTop: "11px",
+              marginRight: "5px"
+            }}>{this.state.player[0].name} </h3>}
+            {this.state.counter === 1 && <h3 style={{
+              color: 'green',
+              marginTop: "11px",
+              marginRight: "5px"
+            }}>{this.state.player[1].name} </h3>}
+            {this.state.counter === 2 && <h3 style={{
+              color: 'red',
+              marginTop: "11px",
+              marginRight: "5px"
+            }}>{this.state.player[2].name} </h3>}
+            {this.state.counter === 3 && <h3 style={{
+              color: 'blue',
+              marginTop: "11px",
+              marginRight: "5px"
+            }}>{this.state.player[3].name} </h3>}
+
+
+            {/* <button onClick={this.handlePlayerMove}>test</button> */}
+            {/* <Button /> */}
+            {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
+            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !`}
+            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !`}
+            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !`)} <br />
+>>>>>>> main
             {`${this.state.player[this.state.counter].name} à toi de jouer !`}
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+            <Winner players={this.state.player} />
           </div>
           <div
             style={{
@@ -921,7 +956,7 @@ class App extends Component {
 
 
         </div>
-        <div className="rules"> <Rules /></div>
+        <div className="rules" > <Rules /></div>
       </>
 
     );

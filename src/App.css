@@ -1,3 +1,7 @@
+body {
+  background-color: darkgray;
+}
+
 .button {
   display: flex;
   width  : 50%;
@@ -73,7 +77,23 @@ img {
 }
 
 .rules {
+  display            : flex;
+  font-weight        : bold;
+  width              : 25%;
+  margin-top         : -650px;
+}
+
+.rules p {
+  font-size: 17px;
+}
+
+.win {
   display: flex;
-  width: 25%;
-  margin-top: -650px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pawn {
+  border: white solid 2px;
+  background-color: white;
 }
