@@ -1,6 +1,11 @@
 import React from "react"
 import Circle from "./Circle";
 
+import yellow from "../img/horseYellow.svg"
+import green from "../img/horseGreen.svg"
+import red from "../img/horseRed.svg"
+import blue from "../img/horseBlue.svg"
+
 class SmallBox extends React.Component {
   render() {
     const { positionActuelle1, positionActuelle2, positionActuelle3, positionActuelle4, column, color, id } = this.props
@@ -15,12 +20,12 @@ class SmallBox extends React.Component {
           border: "1px solid black",
           id: `${id}`,
         }}
-      > 
+      >
         {/* // {Number(id) === positionActuelle && <Circle counter ={this.props.joueur}/>} */}
-        {Number(id) === positionActuelle1 && <Circle player="1"/>}
-        {Number(id) === positionActuelle2 && <Circle player="2"/>}
-        {Number(id) === positionActuelle3 && <Circle player="3"/>}
-        {Number(id) === positionActuelle4 && <Circle player="4"/>}
+        {Number(id) === positionActuelle1 && <Circle player={yellow} />}
+        {Number(id) === positionActuelle2 && <Circle player={green} />}
+        {Number(id) === positionActuelle3 && <Circle player={red} />}
+        {Number(id) === positionActuelle4 && <Circle player={blue} />}
       </div>
     )
   }

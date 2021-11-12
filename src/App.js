@@ -34,6 +34,7 @@ class App extends Component {
           positionInitiale: 1,
           positionActuelle: 1,
           isActive: false,
+          after56: false,
           bonus: false
         },
         {
@@ -168,7 +169,7 @@ class App extends Component {
       dice: randomDice,
       counter: playerIndex === 3 ? 0 : playerIndex + 1
     })
-//  ajustement dé 6 relance
+    //  ajustement dé 6 relance
     // vérifie s'il y a collision 
     //     if (randomDice ===6){
     //   count = count
@@ -204,27 +205,27 @@ class App extends Component {
           </div>
           <div className="d-flex justify-content-center">
 
-          {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
-          {this.state.counter===0&&<h3 style={{
-              color:'yellow'
-              }}>{this.state.player[0].name} </h3>}
-          {this.state.counter===1&&<h3 style={{
-              color:'red'
-              }}>Joueur 2 </h3>}
-          {this.state.counter===2&&<h3 style={{
-              color:'green'
-              }}>Joueur 3 </h3>}
-          {this.state.counter===3&&<h3 style={{
-              color:'blue'
-              }}>Joueur 4 </h3>}
+            {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
+            {this.state.counter === 0 && <h3 style={{
+              color: 'yellow'
+            }}>{this.state.player[0].name} </h3>}
+            {this.state.counter === 1 && <h3 style={{
+              color: 'red'
+            }}>Joueur 2 </h3>}
+            {this.state.counter === 2 && <h3 style={{
+              color: 'green'
+            }}>Joueur 3 </h3>}
+            {this.state.counter === 3 && <h3 style={{
+              color: 'blue'
+            }}>Joueur 4 </h3>}
 
 
-          {/* <button onClick={this.handlePlayerMove}>test</button> */}
-          {/* <Button /> */}
+            {/* <button onClick={this.handlePlayerMove}>test</button> */}
+            {/* <Button /> */}
             {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
-            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !` }
-            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !` }
-            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !` )} <br/>
+            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !`}
+            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !`}
+            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !`)} <br />
             {`${this.state.player[this.state.counter].name} à toi de jouer !`}
             <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
           </div>
