@@ -7,8 +7,7 @@ class Dice extends Component {
 
 
     render() {
-        const { handleClick, image, randomDice } = this.props
-        const random = randomDice
+        const { handleClick } = this.props
         var diceClassName = ""
         if (this.props.random === 1) {
             diceClassName = "firstDice"

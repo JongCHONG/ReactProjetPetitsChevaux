@@ -4,7 +4,7 @@ class Circle extends Component {
     render() {
         return(
             <>
-            <img src="./img/logo.svg" alt="pion du joueur"/>
+            {this.props.player}
             </>
         )
     }
