@@ -9,6 +9,51 @@ import Dice from "./components/Dice"
 import "./App.css"
 import Rules from './components/Rules';
 
+const initialPlayer = [
+  {
+    id: 0,
+    name: "Player 1",
+    color: "yellow",
+    positionInitiale: 43,
+    positionActuelle: 43,
+    isActive: false,
+    after56: false,
+    bonus: false,
+    victory : false
+  },
+  {
+    id: 1,
+    name: "Player 2",
+    color: "green",
+    positionInitiale: 1,
+    positionActuelle: 1,
+    isActive: false,
+    bonus: false,
+    victory:false,
+  },
+  {
+    id: 2,
+    name: "Player 3",
+    color: "red",
+    positionInitiale: 15,
+    positionActuelle: 15,
+    isActive: false,
+    after56: false,
+    bonus: false,
+    victory: false
+  },
+  {
+    id: 3,
+    name: "Player 4",
+    color: "blue",
+    positionInitiale: 29,
+    positionActuelle: 29,
+    isActive: false,
+    after56: false,
+    bonus: false,
+    victory: false
+  }
+]
 
 class App extends Component {
   constructor() {
@@ -16,47 +61,8 @@ class App extends Component {
     this.state = {
       counter: 0,
       dice: 0,
-      player: [
-        {
-          id: 0,
-          name: "Player 1",
-          color: "yellow",
-          positionInitiale: 43,
-          positionActuelle: 43,
-          isActive: false,
-          after56: false,
-          bonus: false
-        },
-        {
-          id: 1,
-          name: "Player 2",
-          color: "green",
-          positionInitiale: 1,
-          positionActuelle: 1,
-          isActive: false,
-          bonus: false
-        },
-        {
-          id: 2,
-          name: "Player 3",
-          color: "red",
-          positionInitiale: 15,
-          positionActuelle: 15,
-          isActive: false,
-          after56: false,
-          bonus: false
-        },
-        {
-          id: 3,
-          name: "Player 4",
-          color: "blue",
-          positionInitiale: 29,
-          positionActuelle: 29,
-          isActive: false,
-          after56: false,
-          bonus: false
-        }
-      ]
+      diceBlock: false,
+      player: initialPlayer
 
     }
     // this.handlePlayerMove = this.handlePlayerMove.bind(this)
@@ -101,11 +107,78 @@ class App extends Component {
   //   }
 
   // // }
+  handleReset =() =>{
 
+    this.setState({
+      counter: 0,
+      dice: 0,
+      diceBlock: false,
+      player: [
+        {
+          id: 0,
+          name: "Player 1",
+          color: "yellow",
+          positionInitiale: 43,
+          positionActuelle: 43,
+          isActive: false,
+          after56: false,
+          bonus: false,
+          victory : false
+        },
+        {
+          id: 1,
+          name: "Player 2",
+          color: "green",
+          positionInitiale: 1,
+          positionActuelle: 1,
+          isActive: false,
+          bonus: false,
+          victory:false,
+        },
+        {
+          id: 2,
+          name: "Player 3",
+          color: "red",
+          positionInitiale: 15,
+          positionActuelle: 15,
+          isActive: false,
+          after56: false,
+          bonus: false,
+          victory: false
+        },
+        {
+          id: 3,
+          name: "Player 4",
+          color: "blue",
+          positionInitiale: 29,
+          positionActuelle: 29,
+          isActive: false,
+          after56: false,
+          bonus: false,
+          victory: false
+        }
+      ]
+
+    })
+
+  }
+  handleVictory=(playerIndex,playersCloned)=>{
+    //  let playersCloned = [...this.state.player]
+    if (playersCloned[playerIndex].positionActuelle === 63){
+      playersCloned[playerIndex].victory= true
+      this.setState({
+        player : playersCloned,
+        diceBlock: true
+      })
+    }
+  }
   handleDiceClick() {
+    if (this.state.diceBlock === true){
+      return
+    }
     let playersCloned = [...this.state.player]
     let playerIndex = this.state.counter
-    // let randomDice = 1
+    // let randomDice = 6
     let randomDice = Math.floor(Math.random() * (6 - 1 + 1) + 1)
 
     if (randomDice === 6 && this.state.player[playerIndex].isActive === false) {
@@ -113,11 +186,7 @@ class App extends Component {
     } else if (this.state.player[playerIndex].isActive === true) {
       playersCloned[playerIndex].positionActuelle += randomDice
     }
-    // if (randomDice ===6){
-    //   count = count
-    // } else if ( randomDice =! 6){
-    //   count = count +1
-    // }
+ 
     if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 0 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
       playersCloned[playerIndex].after56 = true
@@ -159,31 +228,44 @@ class App extends Component {
         }
       }
     })
+
+    // if ( randomDice === 6){
+    //   playerIndex =  playerIndex - 1
+    // } else {
+    //   playerIndex = playerIndex
+    // }
+  
     // if (playersCloned[playerIndex].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
     //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
     // }
-
+    // this.doubleSix()
     this.setState({
       player: playersCloned,
       dice: randomDice,
-      counter: playerIndex === 3 ? 0 : playerIndex + 1
+      counter: this.state.dice ===6? playerIndex : playerIndex === 3 ? 0 : playerIndex + 1
     })
+    
+   this.handleVictory(playerIndex,playersCloned) 
+    }
+    // doubleSix =()=>{
+    //   let playerIndex = this.state.counter
+    //   if ( this.state.dice === 6){
+    //     this.setState({ 
+    //       counter : playerIndex-1})       
+    //     }
 //  ajustement dé 6 relance
-    // vérifie s'il y a collision 
-    //     if (randomDice ===6){
-    //   count = count
-    // } else if ( randomDice =! 6){
-    //   count = count +1
+    // // vérifie s'il y a collision 
+    //      if ( randomDice === 6){
+    //   playerIndex = playerIndex - 1
     // }
     // this.handleCollision(playerIndex)
-  }
-
 
 
   render() {
 
     console.log("counter", this.state.counter)
     console.log("dice", this.state.dice)
+    console.log("player", this.state.player)
     // console.log("state player => ", this.state.player)
     // console.log("position Joueur 1 ", this.state.player[0].positionActuelle);
     // console.log("position Joueur 2 ", this.state.player[1].positionActuelle);
@@ -193,6 +275,7 @@ class App extends Component {
 
     return (
       <>
+      <button onClick ={this.handleReset}> reset ? </button>
         <div
           style={{ width: "750px", height: "800px" }}
           className="bg-light mx-auto my-5"
