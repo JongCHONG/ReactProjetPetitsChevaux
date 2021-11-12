@@ -11,7 +11,7 @@ class Rules extends Component {
                     <h2>Déroulement de la partie</h2>
                 </div>
                 <div>
-                    <p>Chaque joueur commence dans l'écurie, à tour de rôle, ils lancent le dé jusqu'à l'obtention d'un
+                    <p>Chaque joueur commence dans l'écurie, à tour de rôle, les joueurs lancent le dé jusqu'à l'obtention d'un
                         six, ce qui leur permettra de sortir de l'écurie.<br/>
                         Une fois sorti , le joueur relancera le dé et avancera de case en fonction du chiffre affiché sur le dé, si le chiffre est un six
                         il rejoue, sinon, il passe le tour au joueur suivant.

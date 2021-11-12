@@ -1,3 +1,5 @@
+body {background-color: darkgray;}
+
 .button {
   display: flex;
   width  : 50%;
@@ -73,7 +75,11 @@ img {
 }
 
 .rules {
-  display: flex;
-  width: 25%;
-  margin-top: -650px;
+  display         : flex;
+  width           : 25%;
+  margin-top      : -650px;
+  background-image: url("./img/cheval.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
