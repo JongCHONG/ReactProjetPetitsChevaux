@@ -35,6 +35,7 @@ class App extends Component {
           positionInitiale: 1,
           positionActuelle: 1,
           isActive: false,
+          after56: false,
           bonus: false
         },
         {

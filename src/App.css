@@ -93,3 +93,7 @@ img {
   font-weight: bold;
 }
 
+.pawn {
+  border: white solid 2px;
+  background-color: white;
+}
