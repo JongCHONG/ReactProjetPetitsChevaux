@@ -171,8 +171,6 @@ class App extends Component {
     //   playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
     // }
 
- 
-    
     this.setState({
       player: playersCloned,
       dice: randomDice,
@@ -189,8 +187,6 @@ class App extends Component {
     // this.handleCollision(playerIndex)
  
   }
-
-
 
   render() {
 
@@ -222,59 +218,37 @@ class App extends Component {
           </div>
           <div className="d-flex justify-content-center">
 
-<<<<<<< HEAD
-          {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
-          {counter===0&&<h3 style={{
-              color:'yellow'
-              }}>{player[0].name} </h3>}
-          {counter===1&&<h3 style={{
-              color:'green'
-              }}>Joueur 2 </h3>}
-          {counter===2&&<h3 style={{
-              color:'red'
-              }}>Joueur 3 </h3>}
-          {counter===3&&<h3 style={{
-              color:'blue'
-              }}>Joueur 4 </h3>}
-
-            {dice !== 0 && (counter === 1 && `${player[0].name} a eu ${dice} avec la dé du destin !`)}
-            {counter === 2 && `${player[1].name} a eu ${dice} avec la dé du destin !` }
-            {counter === 3 && `${player[2].name} a eu ${dice} avec la dé du destin !` }
-            {dice !== 0 && (counter === 0 && `${player[3].name} a eu ${dice} avec la dé du destin !` )} <br/>
-=======
             {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
-            {this.state.counter === 0 && <h3 style={{
+            {counter === 0 && <h3 style={{
               color: 'yellow',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[0].name} </h3>}
-            {this.state.counter === 1 && <h3 style={{
+            }}>{player[0].name} </h3>}
+            {counter === 1 && <h3 style={{
               color: 'green',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[1].name} </h3>}
-            {this.state.counter === 2 && <h3 style={{
+            }}>{player[1].name} </h3>}
+            {counter === 2 && <h3 style={{
               color: 'red',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[2].name} </h3>}
-            {this.state.counter === 3 && <h3 style={{
+            }}>{player[2].name} </h3>}
+            {counter === 3 && <h3 style={{
               color: 'blue',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[3].name} </h3>}
-
+            }}>{player[3].name} </h3>}
 
             {/* <button onClick={this.handlePlayerMove}>test</button> */}
             {/* <Button /> */}
-            {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec la dé du destin !`)}
-            {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec la dé du destin !`}
-            {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec la dé du destin !`}
-            {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec la dé du destin !`)} <br />
->>>>>>> main
-            {`${this.state.player[this.state.counter].name} à toi de jouer !`}
-            <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
-            <Winner players={this.state.player} />
+            {dice !== 0 && (counter === 1 && `${player[0].name} a eu ${dice} avec la dé du destin !`)}
+            {counter === 2 && `${player[1].name} a eu ${dice} avec la dé du destin !`}
+            {counter === 3 && `${player[2].name} a eu ${dice} avec la dé du destin !`}
+            {dice !== 0 && (counter === 0 && `${player[3].name} a eu ${dice} avec la dé du destin !`)} <br />
+            {`${player[counter].name} à toi de jouer !`}
+            <Dice image={this.image} handleClick={this.handleDiceClick} random={dice} />
+            <Winner players={player} />
           </div>
           <div
             style={{
