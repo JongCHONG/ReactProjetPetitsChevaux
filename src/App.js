@@ -71,43 +71,6 @@ class App extends Component {
 
   }
 
-  // handlePlayerMove = () => {
-  //   //lance le dé
-  //   let playerIndex = this.state.counter
-  //   // récupère le counter index
-  //   const playersCloned = [...this.state.player]
-
-  //   // vérifie que le joueur est active
-  //   if (this.state.player[this.state.counter].isActive === true) {
-  //     playersCloned[playerIndex].positionActuelle += this.state.dice
-  //     this.setState({ player: playersCloned })
-  //   }
-  //   // vérifie s'il y a collision 
-  //   this.handleCollision(playerIndex)
-  //   // ajoute +1 au counter 
-  //   this.setState({ counter: this.state.counter === 0 ? 1 : 0 })
-  //   // this.handleCounter()
-  // }
-  // handleCollision = (playerCurrentPosition) => {
-  //   const secondPlayer = playerCurrentPosition === 0 ? 1 : 0;
-  //   const playersCloned = [...this.state.player]
-  //   if (playersCloned[playerCurrentPosition].positionActuelle === playersCloned[secondPlayer].positionActuelle) {
-  //     playersCloned[secondPlayer].positionActuelle = playersCloned[secondPlayer].positionInitiale
-  //     this.setState({ player: playersCloned })
-  //   }
-  // }
-
-  // // handlePlayerActive = () =>{
-  //   if (this.state.dice === 6) {
-  //     const playersCloned = [...this.state.player]
-  //     playersCloned[this.state.counter].isActive = true
-
-  //     this.setState({
-  //       player: playersCloned
-  //     })
-  //   }
-
-  // // }
   handleReset = () => {
 
     this.setState({
@@ -196,6 +159,7 @@ class App extends Component {
     if (playersCloned[playerIndex].positionActuelle >= 42 && playerIndex === 0 && playersCloned[playerIndex].after56 === true) {
       playersCloned[playerIndex].positionActuelle = 57
       playersCloned[playerIndex].after56 = false
+      playersCloned[playerIndex].bonus = true
     }
     if (playersCloned[playerIndex].positionActuelle >= 56 && playerIndex === 1 && playersCloned[playerIndex].bonus === false) {
       playersCloned[playerIndex].positionActuelle = 57
@@ -210,7 +174,7 @@ class App extends Component {
       playersCloned[playerIndex].positionActuelle = 57
       playersCloned[playerIndex].after56 = false
     }
-    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 3 && playersCloned[playerIndex].bonus === false) {
+    if (playersCloned[playerIndex].positionActuelle > 56 && playerIndex === 3 && playersCloned[playerIndex].bonus === false && playersCloned[playerIndex].after56 === false) {
       playersCloned[playerIndex].positionActuelle = playersCloned[playerIndex].positionActuelle - 56
       playersCloned[playerIndex].after56 = true
       playersCloned[playerIndex].bonus = true
@@ -218,6 +182,7 @@ class App extends Component {
     if (playersCloned[playerIndex].positionActuelle >= 28 && playerIndex === 3 && playersCloned[playerIndex].after56 === true) {
       playersCloned[playerIndex].positionActuelle = 57
       playersCloned[playerIndex].after56 = false
+      playersCloned[playerIndex].bonus = true
     }
     // const secondPlayer = playerIndex === 0 ? 1 : 0
     playersCloned.forEach((element, index) => { // collision
@@ -289,40 +254,37 @@ class App extends Component {
           <div className="d-flex justify-content-around">
             {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
             {this.state.counter === 0 && <h3 style={{
-              color: 'yellow',
+              color: '#ffd700',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[0].name} </h3>}
+            }}>{this.state.player[0].name}, à toi de jouer !</h3>}
             {this.state.counter === 1 && <h3 style={{
               color: 'green',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[1].name} </h3>}
+            }}>{this.state.player[1].name}, à toi de jouer ! </h3>}
             {this.state.counter === 2 && <h3 style={{
               color: 'red',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[2].name} </h3>}
+            }}>{this.state.player[2].name}, à toi de jouer ! </h3>}
             {this.state.counter === 3 && <h3 style={{
               color: 'blue',
               marginTop: "11px",
               marginRight: "5px"
-            }}>{this.state.player[3].name} </h3>}
+            }}>{this.state.player[3].name}, à toi de jouer ! </h3>}
+            <Dice playerIndex={this.state.counter} image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
 
-
-            {/* <button onClick={this.handlePlayerMove}>test</button> */}
-            {/* <Button /> */}
             <div>
-              {this.state.dice !== 0 && (this.state.counter === 1 && `${this.state.player[0].name} a eu ${this.state.dice} avec le dé du destin !`)}
-              {this.state.counter === 2 && `${this.state.player[1].name} a eu ${this.state.dice} avec le dé du destin !`}
-              {this.state.counter === 3 && `${this.state.player[2].name} a eu ${this.state.dice} avec le dé du destin !`}
-              {this.state.dice !== 0 && (this.state.counter === 0 && `${this.state.player[3].name} a eu ${this.state.dice} avec le dé du destin !`)} <br />
-              {`${this.state.player[this.state.counter].name} à toi de jouer !`}</div>
-            <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
+              {this.state.dice !== 0 && (this.state.counter === 1 && <span style={{color: '#ffd700'}}>{this.state.player[0].name} a eu {this.state.dice} avec le dé du destin !</span>)}
+              {this.state.counter === 2 && <span style={{color: 'green'}}>{this.state.player[1].name} a eu {this.state.dice} avec le dé du destin !</span>}
+              {this.state.counter === 3 && <span style={{color: 'red'}}>{this.state.player[2].name} a eu {this.state.dice} avec le dé du destin !</span>}
+              {this.state.dice !== 0 && (this.state.counter === 0 && <span style={{color: 'blue'}}>{this.state.player[3].name} a eu {this.state.dice} avec le dé du destin !</span>)} <br />
+              {/* {`${this.state.player[this.state.counter].name} à toi de jouer !`*/}</div> 
               <button id="reset" onClick={this.handleReset}> reset ? </button>
             <Winner players={this.state.player} />
           </div>
-          {/* <Button /> */}
+
           <div
             style={{
               height: "40vh",
@@ -476,7 +438,6 @@ class App extends Component {
                 id="58"
                 color="green"
                 positionActuelle2={this.state.player[1].positionActuelle}
-                positionActuelle4={this.state.player[3].positionActuelle}
               ></SmallBox>
               <SmallBox
                 id="2"
