@@ -253,22 +253,22 @@ class App extends Component {
 
           <div className="d-flex justify-content-around">
             {/* <Dice image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} /> */}
-            {this.state.counter === 0 && <h3 style={{
-              color: '#ffd700',
+            {this.state.dice !== 6 && this.state.counter === 0 && <h3 style={{
+              color: '#CCAC00',
               marginTop: "11px",
               marginRight: "5px"
             }}>{this.state.player[0].name}, à toi de jouer !</h3>}
-            {this.state.counter === 1 && <h3 style={{
+            {this.state.dice !== 6 && this.state.counter === 1 && <h3 style={{
               color: 'green',
               marginTop: "11px",
               marginRight: "5px"
             }}>{this.state.player[1].name}, à toi de jouer ! </h3>}
-            {this.state.counter === 2 && <h3 style={{
+            {this.state.dice !== 6 && this.state.counter === 2 && <h3 style={{
               color: 'red',
               marginTop: "11px",
               marginRight: "5px"
             }}>{this.state.player[2].name}, à toi de jouer ! </h3>}
-            {this.state.counter === 3 && <h3 style={{
+            {this.state.dice !== 6 && this.state.counter === 3 && <h3 style={{
               color: 'blue',
               marginTop: "11px",
               marginRight: "5px"
@@ -276,10 +276,14 @@ class App extends Component {
             <Dice playerIndex={this.state.counter} image={this.image} handleClick={this.handleDiceClick} random={this.state.dice} />
 
             <div>
-              {this.state.dice !== 0 && (this.state.counter === 1 && <span style={{color: '#ffd700'}}>{this.state.player[0].name} a eu {this.state.dice} avec le dé du destin !</span>)}
+              {this.state.dice !== 0 && (this.state.counter === 1 && <span style={{color: '#CCAC00'}}>{this.state.player[0].name} a eu {this.state.dice} avec le dé du destin !</span>)}
+              {this.state.dice === 6 && (this.state.counter === 1 && <h5 style={{ color: '#CCAC00'}}>Tu rejoues!</h5>)}
               {this.state.counter === 2 && <span style={{color: 'green'}}>{this.state.player[1].name} a eu {this.state.dice} avec le dé du destin !</span>}
+              {this.state.dice === 6 && (this.state.counter === 2 && <h5 style={{ color: 'green'}}>Tu rejoues!</h5>)}
               {this.state.counter === 3 && <span style={{color: 'red'}}>{this.state.player[2].name} a eu {this.state.dice} avec le dé du destin !</span>}
+              {this.state.dice === 6 && (this.state.counter === 3 && <h5 style={{ color: 'red'}}>Tu rejoues!</h5>)}
               {this.state.dice !== 0 && (this.state.counter === 0 && <span style={{color: 'blue'}}>{this.state.player[3].name} a eu {this.state.dice} avec le dé du destin !</span>)} <br />
+              {this.state.dice === 6 && (this.state.counter === 0 && <h5 style={{ color: 'blue'}}>Tu rejoues!</h5>)}
               {/* {`${this.state.player[this.state.counter].name} à toi de jouer !`*/}</div> 
               <button id="reset" onClick={this.handleReset}> reset ? </button>
             <Winner players={this.state.player} />
