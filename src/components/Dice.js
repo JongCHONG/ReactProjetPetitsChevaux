@@ -10,7 +10,6 @@ import { faDiceSix } from '@fortawesome/free-solid-svg-icons'
 class Dice extends Component {
     render() {
         const { handleClick, playerIndex } = this.props
-        console.log(playerIndex);
         var diceClassName = ""
         var dicefontawesome = ""
         if (this.props.random === 1) {
@@ -96,7 +95,7 @@ class Dice extends Component {
         }
         return (
             <div>
-                <div class={diceClassName} onClick={handleClick}>
+                <div className={diceClassName} onClick={handleClick}>
                     {dicefontawesome}
                 </div>
                 
