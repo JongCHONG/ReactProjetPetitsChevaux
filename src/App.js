@@ -8,7 +8,7 @@ import Dice from "./components/Dice";
 
 
 import "./App.css"
-import Rules from './components/Rules';
+// import Rules from './components/Rules';
 
 const initialPlayer = [
   {
@@ -964,7 +964,7 @@ class App extends Component {
 
 
         </div>
-        <div className="rules" > <Rules /></div>
+        {/* <div className="rules" > <Rules /></div> */}
       </>
 
     );
